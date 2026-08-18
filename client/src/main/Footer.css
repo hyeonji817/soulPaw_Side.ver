@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.footer_bar {
+  background-color: #eee;
+  position: relative;
+  top: 300px;
+  font-family: 'GmarketSansMedium';
+  width: 1900px;
+}
+
+.footer_bar .customerCenter {
+  position: relative;
+  top: 150px;
+}
+
+.footer_bar .ft_title {
+  position: relative;
+  left: 60px;
+  top: 100px;
+}
+
+.footer_bar .ft_box {
+  position: relative;
+  left: 60px;
+  top: 100px;
+  width: 330px;
+}
+
+.footer_bar .ft_box strong {
+  font-size: 40px;
+}
+
+.footer_bar .ft_box p {
+  position: relative;
+  top: 20px;
+  left: 3px;
+}
+
+.footer_bar .shopInfo {
+  display: inline-block;
+}
+
+.footer_bar .shopInfo .ft_menu {
+  position: relative;
+  top: -66px;
+  left: 600px;
+}
+
+.footer_bar .shopInfo .ft_menu li {
+  display: inline-block;
+  font-size: 22px;
+}
+
+.footer_bar .info {
+  position: relative;
+  left: 632px;
+  top: -60px;
+}
+
+.footer_bar .ft_pay {
+  display: inline-block;
+  position: relative;
+  bottom: 200px;
+  left: 1400px;
+}
+
+.footer_bar .ft_pay li {
+  padding-top: 20px;
+  font-size: 22px;
+}
+
+.footer_bar .ft_pay li:first-child a {
+  background: url(https://www.rolarola.com/_skin/rolarola_250402/img/common/ft_pay0.png) no-repeat center left;
+  padding-right: 40px;
+}
+
+.footer_bar .ft_pay li:nth-child(2) a {
+  background: url(https://www.rolarola.com/_skin/rolarola_250402/img/common/ft_pay1.png) no-repeat center left;
+  padding-right: 40px;
+}
+
+.footer_bar .ft_pay li:nth-child(3) a {
+  background: url(https://www.rolarola.com/_skin/rolarola_250402/img/common/ft_pay4_2.png) no-repeat center left / 30px;
+  padding-right: 40px;
+}
+
+.footer_bar .ft_pay li p {
+  float: right;
+}
+
+.footer_bar .ft_pay li:first-child p {
+  position: relative;
+  left: 28px;
+}
+
+.footer_bar .ft_pay li:nth-child(2) p {
+  position: relative;
+  left: 2px;
+}
+
+.footer_bar .ft_pay li:nth-child(3) p {
+  position: relative;
+  left: -40px;
+}
+
+ol, ul, li {
+  list-style: none;
+}

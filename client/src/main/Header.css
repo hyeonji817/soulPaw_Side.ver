@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'S-CoreDream-5Medium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SDSamliphopangche_Outline';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.common_top .header_nav {
+  width: 100%;
+  height: 80px;
+  display: flex; 
+  position: fixed; 
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.1); /* 투명도 10% */
+  backdrop-filter: blur(10px); /* 배경 흐림 효과 (선택 사항) */
+  z-index: 99; 
+  text-align: center;
+  margin-top: 0px; 
+  padding-top: 0px;
+}
+
+.common_top .logo {
+  font-family: 'SDSamliphopangche_Outline';
+  font-size: 30px; 
+  width: 200px; 
+  position: absolute; 
+  margin: 0px; 
+  left: 0px; 
+  line-height: 80px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  opacity: 1;
+  text-align: center;
+  display: inline-block;
+}
+
+.common_top .nav-right {
+  width: 1300px; 
+  position: relative;
+  /** right: -40%; */  /** 이게 원본 */
+  right: -38%;
+  margin: 0 auto; 
+  float: right; 
+  opacity: 1;
+  line-height: 80px;
+  text-align: center;
+}
+
+.common_top .nav-right a {
+  padding: 10px; 
+  color: rgb(0, 0, 0);
+  font-size: 21px; 
+  font-weight: 700; 
+  text-decoration: none;
+}
+
+.common_top .nav-right a:hover {
+  text-decoration: none;
+}
+
+.common_top .nav-right > li {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20px; 
+  text-align: center;
+  position: relative;
+  font-size: 18px;
+  font-family: 'GmarketSansMedium' !important;
+}
+
+.common_top .nav-right > li:last-child {
+  margin-right: 170px;
+  font-weight: 800;
+}
+
+.common_top .nav-right > li ul.submenu {
+  display: none;
+  position: absolute;
+  padding: 0;
+  text-align: center;
+  background-color: black;
+  font-size: 18px;
+  list-style: none;
+  font-weight: bold;
+}
+
+.common_top ul.nav-right > li:hover ul.submenu {
+  display: block;
+  width: 150px;
+  border-radius: 0px 0px 8px 8px;
+}
