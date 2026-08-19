@@ -7,7 +7,7 @@ import puppyStairsImg from "../assets/living/1-3. puppyStairs/puppyStairs.png";
 const Products1 = () => {
 
   return (
-    <div id="products_wrap">
+    <div id="products_Living_wrap">
       <div className="products_body">
         <div id="big_section">
           <ul className="sub_category">
