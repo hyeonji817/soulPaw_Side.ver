@@ -1,5 +1,6 @@
 import "./Product_List.css"; 
 import { Link } from "react-router-dom";
+import airMeshImg from "../assets/living/1-1. airMesh/airMesh.png";
 
 const Product_List = () => {
 
@@ -22,7 +23,7 @@ const Product_List = () => {
                   <div className="prdimg">
                     <Link to="/products1">
                       <img 
-                        src="./assets/living/1.1. airMesh/airMesh.png"
+                        src={airMeshImg}
                         alt="강아지 고양이 패드 에어메쉬 순면"
                         width="240"
                         height="320"
@@ -51,7 +52,7 @@ const Product_List = () => {
           </ul>      {/** prd_basic col3 end */}  
 
           <ul className="paging">
-              
+
           </ul>      {/** paging end */}
         </div>      {/** big_section end */}  
       </div>     {/** products_body end */}
