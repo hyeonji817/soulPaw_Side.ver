@@ -10,6 +10,7 @@
 #products_Food_wrap {
   padding-bottom: 50px;
   min-height: 500px;
+  font-family: 'GmarketSansMedium';
 }
 
 
@@ -17,7 +18,6 @@
   overflow: hidden;
   width: 1900px;
   margin: 0 auto;
-  font-family: 'GmarketSansMedium';
 }
 
 #products_Food_wrap #big_section {
