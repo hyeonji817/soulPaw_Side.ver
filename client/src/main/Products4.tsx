@@ -1,5 +1,7 @@
 import "./Products4.css"; 
 import { Link } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 import number8Img from "../assets/medicine/4-1. number8/petHousehold_Medicine.png";
 import quickStopImg from "../assets/medicine/4-2. quickStop/miracleCare_QuickStop.png";
 
@@ -7,6 +9,10 @@ const Products4 = () => {
 
   return (
     <div id="products_Medicine_wrap">
+      <div className="Header">
+        <Header />  
+      </div>      {/** Header end */}
+
       <div className="products_body">
         <div id="big_section">
           <ul className="sub_category">
@@ -90,6 +96,10 @@ const Products4 = () => {
           </ul>      {/** paging end */}
         </div>      {/** big_section end */}
       </div>    {/** products_body end */}
+
+      <div className="Footer">
+        <Footer />
+      </div>      {/** Footer end */}
     </div>     /** products_Medicine end */
   );
 };

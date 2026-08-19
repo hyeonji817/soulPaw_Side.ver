@@ -1,5 +1,7 @@
 import "./Products1.css"; 
 import { Link } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 import airMeshImg from "../assets/living/1-1. airMesh/airMesh.png";
 import ironCatPoleImg from "../assets/living/1-2. ironCatpole/iron_CatPole.png";
 import puppyStairsImg from "../assets/living/1-3. puppyStairs/puppyStairs.png";
@@ -8,6 +10,9 @@ const Products1 = () => {
 
   return (
     <div id="products_Living_wrap">
+      <div className="Header">
+        <Header />  
+      </div>      {/** Header end */}
       <div className="products_body">
         <div id="big_section">
           <ul className="sub_category">
@@ -121,6 +126,10 @@ const Products1 = () => {
           </ul>      {/** paging end */}
         </div>      {/** big_section end */}  
       </div>     {/** products_body end */}
+
+      <div className="Footer">
+        <Footer />
+      </div>      {/** Footer end */}
     </div>      /** products_wrap end */
   );
 };
