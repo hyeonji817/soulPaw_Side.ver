@@ -11,10 +11,10 @@ const Products1 = () => {
       <div className="products_body">
         <div id="big_section">
           <ul className="sub_category">
-            <li><Link to="/shop/products1">리빙용품</Link></li>
-            <li><Link to="/shop/products2">사료간식</Link></li>
-            <li><Link to="/shop/products3">패션용품</Link></li>
-            <li><Link to="/shop/products4">의약용품</Link></li>  
+            <li><Link to="/products_living">리빙용품</Link></li>
+            <li><Link to="/products_food">사료간식</Link></li>
+            <li><Link to="/products_dress">패션용품</Link></li>
+            <li><Link to="/products_medicine">의약용품</Link></li>  
           </ul>        {/** sub_category end */}
 
           {/** 상품정렬 */}
