@@ -21,13 +21,38 @@ const Product_List = () => {
                 <div className="img">
                   <div className="prdimg">
                     <Link to="/products1">
-                      <img src="./assets/"/>
+                      <img 
+                        src="./assets/living/1.1. airMesh/airMesh.png"
+                        alt="강아지 고양이 패드 에어메쉬 순면"
+                        width="240"
+                        height="320"
+                      />
                     </Link>  
                   </div>      {/** prdimg end */}  
                 </div>     {/** img end */}  
+
+                <div className="info">
+                  <p className="name">
+                    <Link to="/">3D AIR MASH 쿨패드</Link>  
+                  </p>    {/** name end */}  
+                  <div className="price">
+                    <p className="sell sellY">
+                      KRW  43,900<span>원</span> 
+                    </p>      {/** sell sellY end */}  
+                    <div className="discount_section">
+                      <p className="per">10%</p>  
+                      <p className="discount discountY">39,420원</p>    {/** discount discountY end */} 
+                    </div>      {/** discount discountY end */}
+                  </div>     {/** price end */}
+                </div>      {/** info end */}
               </div>      {/** box  end */}  
+
             </li>  
           </ul>      {/** prd_basic col3 end */}  
+
+          <ul className="paging">
+              
+          </ul>      {/** paging end */}
         </div>      {/** big_section end */}  
       </div>     {/** products_body end */}
     </div>      /** products_wrap end */
