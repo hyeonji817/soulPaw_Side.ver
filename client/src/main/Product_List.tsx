@@ -1,6 +1,8 @@
 import "./Product_List.css"; 
 import { Link } from "react-router-dom";
 import airMeshImg from "../assets/living/1-1. airMesh/airMesh.png";
+import ironCatPoleImg from "../assets/living/1-2. ironCatpole/iron_CatPole.png";
+import puppyStairsImg from "../assets/living/1-3. puppyStairs/puppyStairs.png";
 
 const Product_List = () => {
 
@@ -47,7 +49,70 @@ const Product_List = () => {
                   </div>     {/** price end */}
                 </div>      {/** info end */}
               </div>      {/** box  end */}  
+            </li>  
 
+            <li>
+              <div className="box ">
+                <div className="img">
+                  <div className="prdimg">
+                    <Link to="/products1">
+                      <img 
+                        src={ironCatPoleImg}
+                        alt="아이언 캣폴"
+                        width="240"
+                        height="320"
+                      />
+                    </Link>  
+                  </div>      {/** prdimg end */}  
+                </div>     {/** img end */}  
+
+                <div className="info">
+                  <p className="name">
+                    <Link to="/">아이언 캣폴 원목캣타워 고양이 놀이터</Link>  
+                  </p>    {/** name end */}  
+                  <div className="price">
+                    <p className="sell sellY">
+                      KRW  129,000<span>원</span> 
+                    </p>      {/** sell sellY end */}  
+                    <div className="discount_section">
+                      <p className="per">10%</p>  
+                      <p className="discount discountY">116,100원</p>    {/** discount discountY end */} 
+                    </div>      {/** discount discountY end */}
+                  </div>     {/** price end */}
+                </div>      {/** info end */}
+              </div>      {/** box  end */}  
+            </li>  
+
+            <li>
+              <div className="box ">
+                <div className="img">
+                  <div className="prdimg">
+                    <Link to="/products1">
+                      <img 
+                        src={puppyStairsImg}
+                        alt="강아지 계단 스텝 고급형"
+                        width="240"
+                        height="320"
+                      />
+                    </Link>  
+                  </div>      {/** prdimg end */}  
+                </div>     {/** img end */}  
+
+                <div className="info">
+                  <p className="name">
+                    <Link to="/">펫 스텝! 고급형 3단 3Color</Link>  
+                  </p>    {/** name end */}  
+                  <div className="price">
+                    <p className="sell sellY">
+                      KRW  50,500<span>원</span> 
+                    </p>      {/** sell sellY end */}  
+                    <div className="discount_section">
+                      <p className="per">10%</p>  
+                      <p className="discount discountY">45,450원</p>    {/** discount discountY end */} 
+                    </div>      {/** discount discountY end */}
+                  </div>     {/** price end */}
+                </div>      {/** info end */}
+              </div>      {/** box  end */}  
             </li>  
           </ul>      {/** prd_basic col3 end */}  
 
