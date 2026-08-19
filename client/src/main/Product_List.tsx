@@ -117,7 +117,7 @@ const Product_List = () => {
           </ul>      {/** prd_basic col3 end */}  
 
           <ul className="paging">
-
+            
           </ul>      {/** paging end */}
         </div>      {/** big_section end */}  
       </div>     {/** products_body end */}
