@@ -100,7 +100,7 @@ const Product1_1 = () => {
     localStorage.setItem("cartItems", JSON.stringify([...prevCart, cartItem]));
 
     alert("장바구니에 상품을 담았습니다.");
-    nav("/cart", { state: { cartItem } });
+    // nav("/cart", { state: { cartItem } });
   };
 
   const handleBuyNow = () => {

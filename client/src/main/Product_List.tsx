@@ -55,7 +55,7 @@ const Product_List = () => {
               <div className="box ">
                 <div className="img">
                   <div className="prdimg">
-                    <Link to="/products1">
+                    <Link to="/ironCat_Pole">
                       <img 
                         src={ironCatPoleImg}
                         alt="아이언 캣폴"
