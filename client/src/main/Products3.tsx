@@ -42,7 +42,7 @@ const Products3 = () => {
 
                 <div className="info">
                   <p className="name">
-                    <Link to="/">[티아라펫] 금화단 한복복</Link>  
+                    <Link to="/geumhwandan_hanbok">[티아라펫] 금화단 한복</Link>  
                   </p>    {/** name end */}  
                   <div className="price">
                     <p className="sell sellY">

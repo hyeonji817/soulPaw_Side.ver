@@ -311,7 +311,7 @@
 	transition: all .2s ease;
 }
 
-.rorench_petChurr_body .mojjine_food_body #detail .info_scroll {
+.rorench_petChurr_wrap .rorench_petChurr_body #detail .info_scroll {
 	position: relative;
 	left: 220px;
 	max-width: 450px;

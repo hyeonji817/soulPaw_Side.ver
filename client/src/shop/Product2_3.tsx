@@ -46,7 +46,7 @@ const typeOptions: ProductOption[] = [
   {
     id: 6, 
     value: "rorench-petChurr", 
-    label: "로렌츠 반려동물 츄르르", 
+    label: "로렌츠 반려동물 츄르", 
     priceDelta: 0, 
   },
 ];
@@ -154,7 +154,7 @@ const Product2_3 = () => {
 
                 <div className="detail_info">
                   <div className="img_wrapper" style={{ textAlign: "center" }}>
-                    <img src={petChurrImg} />
+                    <img src={petChurrDescImg} />
                   </div>     {/** img_wrapper end */}
                   <div style={{ textAlign: "center" }}><br /></div>  
                 </div>     {/** detail_info end */}
