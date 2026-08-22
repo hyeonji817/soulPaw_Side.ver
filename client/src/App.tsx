@@ -26,6 +26,7 @@ function App() {
         <Route path="/products_living" element={<Products1 />} />
         <Route path="/airmesh" element={<Product1_1 />} />
         <Route path="/ironCat_Pole" element={<Product1_2 />} />
+        <Route path="/puppy_Stairs" element={<Product1_3 />} />
 
         <Route path="/products_food" element={<Products2 />} />
         <Route path="/products_dress" element={<Products3 />} />

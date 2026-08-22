@@ -87,7 +87,7 @@ const Product_List = () => {
               <div className="box ">
                 <div className="img">
                   <div className="prdimg">
-                    <Link to="/products1">
+                    <Link to="/puppy_Stairs">
                       <img 
                         src={puppyStairsImg}
                         alt="강아지 계단 스텝 고급형"
