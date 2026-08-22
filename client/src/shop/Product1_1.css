@@ -27,6 +27,8 @@
 	position: relative;
 	max-width: 1920px;
 	margin: 45px auto 0;
+	left: 170px; 
+	top: 100px;
 }
 
 .airMesh_wrap #detail .detail_top_wrap {
