@@ -23,7 +23,7 @@ const Product_List = () => {
               <div className="box ">
                 <div className="img">
                   <div className="prdimg">
-                    <Link to="/products1">
+                    <Link to="/airmesh">
                       <img 
                         src={airMeshImg}
                         alt="강아지 고양이 패드 에어메쉬 순면"
