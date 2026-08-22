@@ -36,8 +36,8 @@ const product = {
   category: "사료간식", 
   public: "국산", 
   price: 8640, 
-  discountPrice: 7776, 
-  discountRate: 10, 
+  discountPrice: 6912, 
+  discountRate: 20, 
   mileage: 172, 
   stock: 10, 
 }; 
@@ -190,7 +190,7 @@ const Product2_1 = () => {
 
             {/** 상품정보 */}
             <div className="info_scroll">
-            <form name="prdFrm" method="post" style={{ margin: "0px" }} acceptCharset="utf-8">
+              <form name="prdFrm" method="post" style={{ margin: "0px" }} acceptCharset="utf-8">
                 <div className="wrap_prd">
                   {/** 상품정보 & 버튼 */}
                   <div className="info">
