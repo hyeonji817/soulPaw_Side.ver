@@ -21,6 +21,8 @@ import Product3_2 from "./shop/Product3_2";
 import Product3_3 from "./shop/Product3_3";
 
 import Products4 from "./main/Products4";
+import Product4_1 from "./shop/Product4_1";
+import Product4_2 from "./shop/Product4_2";
 
 function App() {
   return (
@@ -46,6 +48,8 @@ function App() {
         <Route path="/cherryPola_Tshirt" element={<Product3_3 />} />
 
         <Route path="/products_medicine" element={<Products4 />} />
+        <Route path="/doctorOne_8" element={<Product4_1 />} />
+        <Route path="/quickstock" element={<Product4_2 />} />
       </Routes>
     </>
   );

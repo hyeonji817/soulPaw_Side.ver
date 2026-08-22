@@ -28,7 +28,7 @@ const Products4 = () => {
               <div className="box ">
                 <div className="img">
                   <div className="prdimg">
-                    <Link to="/products1">
+                    <Link to="/doctorOne_8">
                       <img 
                         src={number8Img}
                         alt="반려동물 상비약"
@@ -41,7 +41,7 @@ const Products4 = () => {
 
                 <div className="info">
                   <p className="name">
-                    <Link to="/">닥터원 넘어8</Link>  
+                    <Link to="/doctorOne_8">닥터원 넘어8</Link>  
                   </p>    {/** name end */}  
                   <div className="price">
                     <p className="sell sellY">
@@ -60,10 +60,10 @@ const Products4 = () => {
               <div className="box ">
                 <div className="img">
                   <div className="prdimg">
-                    <Link to="/products1">
+                    <Link to="/quickstock">
                       <img 
                         src={quickStopImg}
-                        alt="강아지 발톱 지혈제제"
+                        alt="강아지 발톱 지혈제"
                         width="240"
                         height="320"
                       />
@@ -73,7 +73,7 @@ const Products4 = () => {
 
                 <div className="info">
                   <p className="name">
-                    <Link to="/">미라클케어 퀵스탑 지혈제제</Link>  
+                    <Link to="/quickstock">미라클케어 퀵스탑 지혈제</Link>  
                   </p>    {/** name end */}  
                   <div className="price">
                     <p className="sell sellY">
