@@ -80,8 +80,8 @@ const Products1 = () => {
                       KRW  129,000<span>원</span> 
                     </p>      {/** sell sellY end */}  
                     <div className="discount_section">
-                      <p className="per">10%</p>  
-                      <p className="discount discountY">116,100원</p>    {/** discount discountY end */} 
+                      <p className="per">30%</p>  
+                      <p className="discount discountY">90,300원</p>    {/** discount discountY end */} 
                     </div>      {/** discount discountY end */}
                   </div>     {/** price end */}
                 </div>      {/** info end */}

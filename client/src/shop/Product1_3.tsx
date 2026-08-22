@@ -161,7 +161,7 @@ const Product1_3 = () => {
               </div>      {/** addimg end */}  
 
               <div className="related_wrap">
-              <div className="btn_bottom dn">
+                <div className="btn_bottom dn">
                   <span className="box_btn w141 left">
                     <a
                       href="/cart"
@@ -190,7 +190,7 @@ const Product1_3 = () => {
 
             {/** 상품정보 */}
             <div className="info_scroll">
-            <form name="prdFrm" method="post" style={{ margin: "0px" }} acceptCharset="utf-8">
+              <form name="prdFrm" method="post" style={{ margin: "0px" }} acceptCharset="utf-8">
                 <div className="wrap_prd">
                   {/** 상품정보 & 버튼 */}
                   <div className="info">

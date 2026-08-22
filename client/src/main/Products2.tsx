@@ -28,10 +28,10 @@ const Products2 = () => {
               <div className="box ">
                 <div className="img">
                   <div className="prdimg">
-                    <Link to="/products1">
+                    <Link to="/dograng_classic">
                       <img 
                         src={dograngImg}
-                        alt="도그랑랑"
+                        alt="도그랑"
                         width="240"
                         height="320"
                       />
