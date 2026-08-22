@@ -92,7 +92,7 @@ const Products2 = () => {
               <div className="box ">
                 <div className="img">
                   <div className="prdimg">
-                    <Link to="/products1">
+                    <Link to="/rorench_petChurr">
                       <img 
                         src={rorenchImg}
                         alt="반려동물 츄르"

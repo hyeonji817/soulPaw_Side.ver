@@ -13,6 +13,7 @@ import Product1_3 from "./shop/Product1_3";
 import Products2 from "./main/Products2";
 import Product2_1 from "./shop/Product2_1";
 import Product2_2 from "./shop/Product2_2";
+import Product2_3 from "./shop/Product2_3";
 
 import Products3 from "./main/Products3";
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/products_food" element={<Products2 />} />
         <Route path="/dograng_classic" element={<Product2_1 />} />
         <Route path="/mojjine_food" element={<Product2_2 />} />
+        <Route path="/rorench_petChurr" element={<Product2_3 />} />
 
         <Route path="/products_dress" element={<Products3 />} />
         <Route path="/products_medicine" element={<Products4 />} />

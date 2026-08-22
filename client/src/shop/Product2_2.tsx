@@ -44,7 +44,7 @@ const product = {
 
 const typeOptions: ProductOption[] = [
   {
-    id: 4, 
+    id: 5, 
     value: "mojjine-food", 
     label: "전연령 고양이 사료", 
     priceDelta: 0, 
@@ -161,7 +161,7 @@ const Product2_2 = () => {
               </div>      {/** addimg end */}  
 
               <div className="related_wrap">
-              <div className="btn_bottom dn">
+                <div className="btn_bottom dn">
                   <span className="box_btn w141 left">
                     <a
                       href="/cart"
