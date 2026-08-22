@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../main/Header";
 import Footer from "../main/Footer";
 
-import ironCatPoleImg from "../assets/living/1-2. ironCatpole/iron_CatPole2.png"; 
+import ironCatPoleImg from "../assets/living/1-2. ironCatpole/iron_CatPole.png"; 
 import ironCatPoleDescImg from "../assets/living/1-2. ironCatpole/iron_CatPole_Desc1.png";
 
 type ProductOption = {
@@ -34,6 +34,7 @@ const product = {
   pname: "아이언 캣폴",
   manufacturer: "가또블랑코", 
   category: "리빙용품", 
+  public: "국산",
   price: 129000, 
   discountPrice: 90300,
   discountRate: 30,
@@ -189,7 +190,7 @@ const Product1_2 = () => {
 
             {/** 상품정보 */}
             <div className="info_scroll">
-            <form name="prdFrm" method="post" style={{ margin: "0px" }} acceptCharset="utf-8">
+              <form name="prdFrm" method="post" style={{ margin: "0px" }} acceptCharset="utf-8">
                 <div className="wrap_prd">
                   {/** 상품정보 & 버튼 */}
                   <div className="info">

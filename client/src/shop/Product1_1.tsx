@@ -34,6 +34,7 @@ const product = {
   pname: "에어메쉬 순면 쿨매트",
   manufacturer: "(주)국민유통",
   category: "리빙용품",
+  public: "국산", 
   price: 43900,
   discountPrice: 39510,
   discountRate: 10,
