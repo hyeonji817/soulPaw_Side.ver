@@ -15,7 +15,7 @@ const Products3 = () => {
       </div>      {/** Header end */}
 
       <div className="products_body">
-      <div id="big_section">
+        <div id="big_section">
           <ul className="sub_category">
             <li><Link to="/products_living">리빙용품</Link></li>
             <li><Link to="/products_food">사료간식</Link></li>
@@ -29,10 +29,10 @@ const Products3 = () => {
               <div className="box ">
                 <div className="img">
                   <div className="prdimg">
-                    <Link to="/products1">
+                    <Link to="/geumhwandan_hanbok">
                       <img 
                         src={hanbokImg}
-                        alt="금화단 한복복"
+                        alt="금화단 한복"
                         width="240"
                         height="320"
                       />
@@ -64,7 +64,7 @@ const Products3 = () => {
                     <Link to="/aricat_Tshirt">
                       <img 
                         src={aricatImg}
-                        alt="아리캣 민소매매"
+                        alt="아리캣 민소매"
                         width="240"
                         height="320"
                       />
@@ -74,7 +74,7 @@ const Products3 = () => {
 
                 <div className="info">
                   <p className="name">
-                    <Link to="/">아리캣 곰체크 나시티 민소매</Link>  
+                    <Link to="/aricat_Tshirt">아리캣 곰체크 나시티 민소매</Link>  
                   </p>    {/** name end */}  
                   <div className="price">
                     <p className="sell sellY">
@@ -93,10 +93,10 @@ const Products3 = () => {
               <div className="box ">
                 <div className="img">
                   <div className="prdimg">
-                    <Link to="/products1">
+                    <Link to="/cherryPola_Tshirt">
                       <img 
                         src={cherryPolaImg}
-                        alt="체리폴라 티셔츠츠"
+                        alt="체리폴라 티셔츠"
                         width="240"
                         height="320"
                       />
@@ -106,7 +106,7 @@ const Products3 = () => {
 
                 <div className="info">
                   <p className="name">
-                    <Link to="/">[티아라펫] 체리폴라 티셔츠</Link>  
+                    <Link to="/cherryPola_Tshirt">[티아라펫] 체리폴라 티셔츠</Link>  
                   </p>    {/** name end */}  
                   <div className="price">
                     <p className="sell sellY">
