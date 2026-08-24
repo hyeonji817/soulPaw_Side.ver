@@ -92,7 +92,7 @@ const Products1 = () => {
               <div className="box ">
                 <div className="img">
                   <div className="prdimg">
-                    <Link to="/products1">
+                    <Link to="/puppy_Stairs">
                       <img 
                         src={puppyStairsImg}
                         alt="강아지 계단 스텝 고급형"
@@ -105,7 +105,7 @@ const Products1 = () => {
 
                 <div className="info">
                   <p className="name">
-                    <Link to="/">펫 스텝! 고급형 3단 3Color</Link>  
+                    <Link to="/puppy_Stairs">펫 스텝! 고급형 3단 3Color</Link>  
                   </p>    {/** name end */}  
                   <div className="price">
                     <p className="sell sellY">

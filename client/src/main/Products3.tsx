@@ -29,7 +29,7 @@ const Products3 = () => {
               <div className="box ">
                 <div className="img">
                   <div className="prdimg">
-                    <Link to="/geumhwandan_hanbok">
+                    <Link to="/geumhwadan_hanbok">
                       <img 
                         src={hanbokImg}
                         alt="금화단 한복"
@@ -42,7 +42,7 @@ const Products3 = () => {
 
                 <div className="info">
                   <p className="name">
-                    <Link to="/geumhwandan_hanbok">[티아라펫] 금화단 한복</Link>  
+                    <Link to="/geumhwadan_hanbok">[티아라펫] 금화단 한복</Link>  
                   </p>    {/** name end */}  
                   <div className="price">
                     <p className="sell sellY">
