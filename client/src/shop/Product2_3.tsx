@@ -1,5 +1,5 @@
 import "./Product2_3.css";
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../main/Header";
 import Footer from "../main/Footer";
