@@ -61,7 +61,7 @@ const Product1_1 = () => {
   const nav = useNavigate();
   const [qty, setQty] = useState(1);
   const [selectedType, setSelectedType] = useState("");
-  const [isWished, setIsWished] = useState(() => {
+  const [isWished, setIsWished] = useState<boolean>(() => {
     return localStorage.getItem(`wish:${PRODUCT_TABLE}:${PRODUCT_ID}`) === "Y";
   });
 
