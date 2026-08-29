@@ -98,7 +98,11 @@ export const useWishlist = () => {
   );
 
   useEffect(() => {
-    void fetchWishlist();
+    const loadWishlist = async () => {
+      await fetchWishlist();
+    };
+  
+    void loadWishlist();
   }, [fetchWishlist]);
 
   return {
