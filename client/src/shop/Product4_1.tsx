@@ -1,6 +1,8 @@
 import "./Product4_1.css";
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../lib/supabase";
+import { getTossPayments } from "../lib/tossPayments";
 import Header from "../main/Header";
 import Footer from "../main/Footer";
 
@@ -30,6 +32,10 @@ type CartItem = {
 const PRODUCT_TABLE = "product_medicine"; 
 const PRODUCT_ID = "petHousehold_Medicine";
 
+const createTossOrderId = () => {
+  return `soulpaw-${crypto.randomUUID()}`;
+};
+
 const product = {
   pname: "닥터원 넘버에잇 유산균", 
   manufacturer: "닥터원", 
@@ -55,7 +61,7 @@ const Product4_1 = () => {
   const nav = useNavigate(); 
   const [qty, setQty] = useState(1); 
   const [selectedType, setSelectedType] = useState(""); 
-  const [isWished, setIsWished] = useState(() => {
+  const [isWished, setIsWished] = useState<boolean>(() => {
     return localStorage.getItem(`wish:${PRODUCT_TABLE}:${PRODUCT_ID}`) === "Y";
   });
 
@@ -111,12 +117,81 @@ const Product4_1 = () => {
     nav("/orderList", { state: { orderItem } });
   };
 
-  const handlePayment = () => {
+  const handlePayment = async () => {
     if (!validateRequiredOption()) return;
 
-    const paymentItem = makeCartItem();
-    localStorage.setItem("paymentItem", JSON.stringify(paymentItem));
-    nav("/payment", { state: { paymentItem } });
+    const {
+      data: { user },
+      error: userError,
+    } = await supabase.auth.getUser();
+
+    if (userError || !user) {
+      alert("로그인이 필요한 기능입니다.");
+      return;
+    }
+
+    const tossOrderId = createTossOrderId();
+    const amount = totalPrice;
+    const orderName = `${product.pname}${qty > 1 ? ` 외 ${qty - 1}건` : ""}`;
+
+    const { data: order, error: orderError } = await supabase
+      .from("orders")
+      .insert({
+        user_id: user.id,
+        toss_order_id: tossOrderId,
+        receiver_name: "상세페이지 바로결제",
+        receiver_phone: "01000000000",
+        postal_code: "00000",
+        address1: "주문서에서 입력 필요",
+        total_product_amount: amount,
+        shipping_fee: 0,
+        total_payment_amount: amount,
+      })
+      .select("id")
+      .single();
+
+    if (orderError) {
+      alert(orderError.message);
+      return;
+    }
+
+    const { error: orderItemError } = await supabase.from("order_items").insert({
+      order_id: order.id,
+      product_id: PRODUCT_ID,
+      option_id: selectedOption?.id ?? null,
+      product_name: product.pname,
+      option_label: selectedOption?.label ?? null,
+      unit_price: unitPrice,
+      quantity: qty,
+      total_price: amount,
+    });
+
+    if (orderItemError) {
+      alert(orderItemError.message);
+      return;
+    }
+
+    try {
+      const tossPayments = await getTossPayments();
+      const payment = tossPayments.payment({ customerKey: user.id });
+
+      await payment.requestPayment({
+        method: "CARD",
+        amount: {
+          currency: "KRW",
+          value: amount,
+        },
+        orderId: tossOrderId,
+        orderName,
+        customerName: user.user_metadata?.name ?? "SoulPaw 고객",
+        customerEmail: user.email,
+        successUrl: `${window.location.origin}/payment/success`,
+        failUrl: `${window.location.origin}/payment/fail`,
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "결제창을 여는 중 오류가 발생했습니다.";
+      alert(message);
+    }
   };
 
   const handleToggleWish = () => {
