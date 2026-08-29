@@ -110,9 +110,13 @@ export const useCart = () => {
   }, [fetchCart]);
 
   useEffect(() => {
-    void fetchCart();
-  }, [fetchCart]);
+    const loadCart = async () => {
+      await fetchCart();
+    };
 
+    void loadCart(); 
+  }, [fetchCart]);
+  
   const totalProductAmount = useMemo(
     () => items.reduce((total, item) => total + getCartItemTotalPrice(item), 0),
     [items],
