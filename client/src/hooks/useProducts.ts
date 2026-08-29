@@ -55,7 +55,11 @@ export const useProducts = (category?: ProductCategory): UseProductsResult => {
   }, [category]);
 
   useEffect(() => {
-    void fetchProducts();
+    const loadProducts = async () => {
+      await fetchProducts();
+    };
+  
+    void loadProducts();
   }, [fetchProducts]);
 
   return { products, loading, error, refetch: fetchProducts };
@@ -109,7 +113,11 @@ export const useProduct = (slug: string | undefined): UseProductResult => {
   }, [slug]);
 
   useEffect(() => {
-    void fetchProduct();
+    const loadProduct = async () => {
+      await fetchProduct();
+    };
+  
+    void loadProduct();
   }, [fetchProduct]);
 
   return { product, loading, error, refetch: fetchProduct };
