@@ -52,6 +52,7 @@ type CartItem = {
 
 type Product1Props = {
   productSlug: string;
+  classBase?: string;
 };
 
 const assetModules = import.meta.glob("../assets/**/*.{png,jpg,jpeg,svg}", {
@@ -83,7 +84,7 @@ const resolveAssetUrl = (assetPath?: string) => {
   return assetUrlByPath[assetPath] ?? assetPath;
 };
 
-const Product1 = ({ productSlug }: Product1Props) => {
+const Product1 = ({ productSlug, classBase = "airMesh" }: Product1Props) => {
   const nav = useNavigate();
   const [product, setProduct] = useState<Product | null>(null);
   const [qty, setQty] = useState(1);
@@ -271,35 +272,35 @@ const Product1 = ({ productSlug }: Product1Props) => {
 
   if (isLoading) {
     return (
-      <div className="airMesh_wrap">
-        <div className="airMesh_Header"><Header /></div>
-        <div className="airMesh_body">
+      <div className={`${classBase}_wrap`}>
+        <div className={`${classBase}_Header`}><Header /></div>
+        <div className={`${classBase}_body`}>
           <div id="detail">상품 정보를 불러오는 중입니다.</div>
         </div>
-        <div className="airMesh_Footer"><Footer /></div>
+        <div className={`${classBase}_Footer`}><Footer /></div>
       </div>
     );
   }
 
   if (errorMessage || !product) {
     return (
-      <div className="airMesh_wrap">
-        <div className="airMesh_Header"><Header /></div>
-        <div className="airMesh_body">
+      <div className={`${classBase}_wrap`}>
+        <div className={`${classBase}_Header`}><Header /></div>
+        <div className={`${classBase}_body`}>
           <div id="detail">{errorMessage || "상품을 찾을 수 없습니다."}</div>
         </div>
-        <div className="airMesh_Footer"><Footer /></div>
+        <div className={`${classBase}_Footer`}><Footer /></div>
       </div>
     );
   }
 
   return (
-    <div className="airMesh_wrap">
-      <div className="airMesh_Header">
+    <div className={`${classBase}_wrap`}>
+      <div className={`${classBase}_Header`}>
         <Header />  
       </div>      {/** airMesh_Header end */}
 
-      <div className="airMesh_body">
+      <div className={`${classBase}_body`}>
         <div id="detail">
           <div className="detail_top_wrap">
             <div className="prdimg">
@@ -545,7 +546,7 @@ const Product1 = ({ productSlug }: Product1Props) => {
         </div>
       </div>        {/** airMesh_body end */}
 
-      <div className="airMesh_Footer">
+      <div className={`${classBase}_Footer`}>
         <Footer />  
       </div>      {/** airMesh_Footer end */}
     </div>      /** airMesh_wrap end */
