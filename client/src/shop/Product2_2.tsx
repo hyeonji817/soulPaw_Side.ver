@@ -10,7 +10,7 @@ import mojjineImg from "../assets/food/2-2. mojjine/mojjine.png";
 import mojjineDescImg from "../assets/food/2-2. mojjine/mojjine_Desc.png";
 
 type ProductOption = {
-  id: number; 
+  id: string; 
   value: string; 
   label: string; 
   priceDelta: number; 
@@ -50,7 +50,7 @@ const product = {
 
 const typeOptions: ProductOption[] = [
   {
-    id: 5, 
+    id: "5", 
     value: "mojjine-food", 
     label: "전연령 고양이 사료", 
     priceDelta: 0, 

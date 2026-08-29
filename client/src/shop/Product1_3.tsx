@@ -10,7 +10,7 @@ import puppyStairsImg from "../assets/living/1-3. puppyStairs/puppyStairs.png";
 import puppyStairsDescImg from "../assets/living/1-3. puppyStairs/puppyStairs_Desc1.png";
 
 type ProductOption = {
-  id: number; 
+  id: string; 
   value: string; 
   label: string; 
   priceDelta: number; 
@@ -50,7 +50,7 @@ const product = {
 
 const typeOptions: ProductOption[] = [
   {
-    id: 3, 
+    id: "3", 
     value: "puppy-stairs", 
     label: "펫 스텝!", 
     priceDelta: 0, 

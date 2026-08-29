@@ -10,7 +10,7 @@ import dograngImg from "../assets/food/2-1. dograng/dograngClassic.png";
 import dograngDescImg from "../assets/food/2-1. dograng/dograngClassic_Desc.png"; 
 
 type ProductOption = {
-  id: number; 
+  id: string; 
   value: string; 
   label: string; 
   priceDelta: number; 
@@ -50,7 +50,7 @@ const product = {
 
 const typeOptions: ProductOption[] = [
   {
-    id: 4, 
+    id: "4", 
     value: "dograng-classicFood", 
     label: "클래식 전연령", 
     priceDelta: 0, 

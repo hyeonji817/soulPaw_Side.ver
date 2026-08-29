@@ -10,7 +10,7 @@ import quickStopImg from "../assets/medicine/4-2. quickStop/miracleCare_QuickSto
 import quickStopDescImg from "../assets/medicine/4-2. quickStop/miracleCare_QuickStop_Desc.png";
 
 type ProductOption = {
-  id: number; 
+  id: string; 
   value: string; 
   label: string; 
   priceDelta: number; 
@@ -50,7 +50,7 @@ const product = {
 
 const typeOptions: ProductOption[] = [
   {
-    id: 10,
+    id: "10",
     value: "miracle_Care", 
     label: "반려동물 발톱 지혈제", 
     priceDelta: 0, 

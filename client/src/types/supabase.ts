@@ -122,6 +122,7 @@ export type Database = {
         Row: {
           id: string;
           user_id: string;
+          toss_order_id: string | null;
           status: "pending" | "paid" | "preparing" | "shipped" | "delivered" | "cancelled";
           receiver_name: string;
           receiver_phone: string;

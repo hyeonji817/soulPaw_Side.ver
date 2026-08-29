@@ -10,7 +10,7 @@ import geumhwadanHanbok from "../assets/dress/3-1. hanbok/hanbok.png";
 import hanbokDescImg from "../assets/dress/3-1. hanbok/hanbok_Desc1.png";
 
 type ProductOption = {
-  id: number; 
+  id: string; 
   value: string; 
   label: string; 
   priceDelta: number; 
@@ -50,7 +50,7 @@ const product = {
 
 const typeOptions: ProductOption[] = [
   {
-    id: 7, 
+    id: "7", 
     value: "geumhwadan-hanbok", 
     label: "금화단 한복", 
     priceDelta: 0, 

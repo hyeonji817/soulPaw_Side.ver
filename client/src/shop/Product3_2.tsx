@@ -10,7 +10,7 @@ import aricat_nasiImg from "../assets/dress/3-2. aricat_nasi/catTshirt.png";
 import aricat_nasiDescImg from "../assets/dress/3-2. aricat_nasi/catTshirt_Desc1.png";
 
 type ProductOption = {
-  id: number; 
+  id: string; 
   value: string; 
   label: string; 
   priceDelta: number; 
@@ -50,7 +50,7 @@ const product = {
 
 const typeOptions: ProductOption[] = [
   {
-    id: 8, 
+    id: "8", 
     value: "aricat-nasiTshirt", 
     label: "아리캣 민소매", 
     priceDelta: 0, 

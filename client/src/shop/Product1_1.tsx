@@ -10,7 +10,7 @@ import airMeshImg from "../assets/living/1-1. airMesh/airMesh.png";
 import airMeshDescImg from "../assets/living/1-1. airMesh/airMesh_Desc1.png";
 
 type ProductOption = {
-  id: number;
+  id: string;
   value: string;
   label: string;
   priceDelta: number;
@@ -50,7 +50,7 @@ const product = {
 
 const typeOptions: ProductOption[] = [
   {
-    id: 1,
+    id: "1",
     value: "air-mesh-cool-pad",
     label: "에어메쉬 순면 쿨패드",
     priceDelta: 0,

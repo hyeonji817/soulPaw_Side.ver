@@ -10,7 +10,7 @@ import number8Img from "../assets/medicine/4-1. number8/petHousehold_Medicine.pn
 import number8DescImg from "../assets/medicine/4-1. number8/petHousehold_Medicine_Desc.png";
 
 type ProductOption = {
-  id: number; 
+  id: string; 
   value: string; 
   label: string; 
   priceDelta: number; 
@@ -50,7 +50,7 @@ const product = {
 
 const typeOptions: ProductOption[] = [
   {
-    id: 10,
+    id: "10",
     value: "doctorOne_8", 
     label: "반려동물 상비약", 
     priceDelta: 0, 

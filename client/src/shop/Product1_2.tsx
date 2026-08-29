@@ -10,7 +10,7 @@ import ironCatPoleImg from "../assets/living/1-2. ironCatpole/iron_CatPole.png";
 import ironCatPoleDescImg from "../assets/living/1-2. ironCatpole/iron_CatPole_Desc1.png";
 
 type ProductOption = {
-  id: number; 
+  id: string; 
   value: string; 
   label: string; 
   priceDelta: number; 
@@ -50,7 +50,7 @@ const product = {
 
 const typeOptions: ProductOption[] = [
   {
-    id: 2, 
+    id: "2", 
     value: "iron-cat-pole", 
     label: "아이언 캣폴", 
     priceDelta: 0,

@@ -10,7 +10,7 @@ import petChurrImg from "../assets/food/2-3. rorench/3. petChurr1.png";
 import petChurrDescImg from "../assets/food/2-3. rorench/3. petChurr_Desc1.png";
 
 type ProductOption = {
-  id: number; 
+  id: string; 
   value: string; 
   label: string; 
   priceDelta: number; 
@@ -50,7 +50,7 @@ const product = {
 
 const typeOptions: ProductOption[] = [
   {
-    id: 6, 
+    id: "6", 
     value: "rorench-petChurr", 
     label: "로렌츠 반려동물 츄르", 
     priceDelta: 0, 

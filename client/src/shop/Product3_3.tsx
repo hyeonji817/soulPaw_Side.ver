@@ -10,7 +10,7 @@ import cherryPolaImg from "../assets/dress/3-3. cherryPola/cherryPola.png";
 import cherryPolaDescImg from "../assets/dress/3-3. cherryPola/cherryPola_Desc.png";
 
 type ProductOption = {
-  id: number; 
+  id: string; 
   value: string; 
   label: string; 
   priceDelta: number; 
@@ -50,7 +50,7 @@ const product = {
 
 const typeOptions: ProductOption[] = [
   {
-    id: 9, 
+    id: "9", 
     value: "cherryPola-Tshirt", 
     label: "체리폴라 티셔츠", 
     priceDelta: 0, 
