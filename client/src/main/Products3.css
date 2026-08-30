@@ -55,7 +55,7 @@ a, a:hover, a:active, a:focus {
 }
 
 #products_Dress_wrap .dn {
-  display: none !important;
+  display: none ;
 }
 
 #products_Dress_wrap .total_sort .total {
@@ -313,7 +313,7 @@ img {
 }
 
 #products_Dress_wrap .tac {
-  text-align: center !important;
+  text-align: center ;
 }
 
 /** 검색기능 구현 */

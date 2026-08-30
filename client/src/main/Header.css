@@ -88,7 +88,7 @@
   text-align: center;
   position: relative;
   font-size: 18px;
-  font-family: 'GmarketSansMedium' !important;
+  font-family: 'GmarketSansMedium' ;
 }
 
 .common_top .nav-right > li:last-child {

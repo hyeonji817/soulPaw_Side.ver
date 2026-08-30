@@ -26,6 +26,20 @@ const Header = () => {
               </li>   
             </ul>     {/** submenu end */}
           </li>
+          <li>
+          <Link className="link" to="/customer_main">고객센터</Link>
+            <ul className="submenu">
+              <li>
+                <Link className="link" to="/customer_main">공지사항</Link>
+              </li>
+              <li>
+                <Link className="link" to="/customer_policy">운영정책</Link>
+              </li>
+              <li>
+                <Link className="link" to="/customer_question">Q&A</Link>
+              </li>
+            </ul>
+          </li>
         </ul>     {/** nav-right end */}  
       </div>    {/** header_nav end */}
     </header>      /** common_top end */
