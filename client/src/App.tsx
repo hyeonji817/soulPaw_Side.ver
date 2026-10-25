@@ -1,3 +1,4 @@
+import MyPage from "./pages/MyPage";
 import Register from "./account/Register";
 import Commerce, { OrderComplete } from "./pages/Commerce";
 import Login from "./account/Login";
@@ -35,6 +36,7 @@ function App() {
   return (
     <>
       <Routes>
+<Route path="/mypage" element={<MyPage />} />
 <Route path="/home" element={<Home />} />
 <Route path="/cart" element={<Commerce />} />
 <Route path="/orderList" element={<Commerce order />} />

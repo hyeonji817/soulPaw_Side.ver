@@ -118,3 +118,15 @@
 .common_top .nav-right>li,.common_top .nav-right>li:last-child {margin:0;}
 .common_top .nav-right button.link {border:0;background:none;color:#000;font:inherit;font-size:18px;cursor:pointer;}
 @media(max-width:700px){.common_top .nav-right{gap:6px}.common_top .nav-right a,.common_top .nav-right button.link{font-size:13px;padding:4px}.common_top .logo{font-size:24px}}
+/* Recypro's user.png and gray account dropdown. */
+.common_top .nav-right>.HO_user {height:80px;display:flex;align-items:center;}
+.common_top .HO_user .account-toggle {display:flex;align-items:center;padding:0;margin:0 22px 0 0;border:0;background:transparent;cursor:pointer;line-height:normal;}
+.common_top .HO_user .account-toggle img {display:block;width:50px;height:50px;object-fit:contain;}
+.common_top .nav-right>.HO_user ul.account-submenu,
+.common_top .nav-right>.HO_user:hover ul.account-submenu {display:none;position:absolute;top:100%;right:0;width:150px;margin:0;padding:0;background:#eee;border-radius:0 0 8px 8px;text-align:center;list-style:none;}
+.common_top .nav-right>.HO_user ul.account-submenu.is-open {display:block;}
+.common_top .account-submenu>li {margin:0;padding:0;line-height:80px;}
+.common_top .account-submenu a.link,.common_top .account-submenu button.link {display:block;box-sizing:border-box;width:100%;padding:0 10px;border:0;background:transparent;color:#000;font-family:inherit;font-size:21px;font-weight:700;line-height:80px;text-decoration:none;cursor:pointer;}
+.common_top .account-submenu a:focus-visible,.common_top .account-submenu button:focus-visible,.common_top .account-toggle:focus-visible {outline:2px solid #555;outline-offset:2px;}
+.common_top .account-submenu .account-error {padding:8px;font-size:12px;line-height:1.6;color:#c33;}
+@media(max-width:700px){.common_top .HO_user .account-toggle{margin-right:0}.common_top .HO_user .account-toggle img{width:40px;height:40px}}
