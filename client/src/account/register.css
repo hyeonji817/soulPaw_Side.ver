@@ -513,7 +513,7 @@
 .soulpaw-register .cont_box iframe{width:100%;height:150px;border:1px solid #ddd;}
 @media(max-width:850px){.soulpaw-register #join_input fieldset>.box>div{padding-right:0;}.soulpaw-register #join_input fieldset>.box>div>.input_area{width:auto;}.soulpaw-register #join_input fieldset>.box>div>.input_area input.form_input{width:100%;}.soulpaw-register #join_input fieldset>.box>div>label{width:120px;}.soulpaw-register #join_input fieldset>.box>div .msg{display:none;}.soulpaw-register .check_chg label{margin-bottom:12px;}}
 /* Explicit columns prevent rows without hint text from stretching label cells. */
-.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div {display:grid;grid-template-columns:170px 70% minmax(0,1fr);align-items:center;padding-right:0;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div {display:grid;grid-template-columns:170px 60%;justify-content:center;align-items:center;padding-right:0;}
 .soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>.input_area {display:block;width:100%;min-width:0;}
 .soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>label {display:block;box-sizing:border-box;width:170px;}
 @media(max-width:850px){.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div{grid-template-columns:120px minmax(0,1fr)}.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>.input_area{width:100%}.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>label{width:120px}}
@@ -545,4 +545,5 @@
 .soulpaw-register #join_input .check_chg input[type=checkbox]+label {margin:0;line-height:1.5;}
 .soulpaw-register #join_input .check_chg .event_info {grid-column:1/-1;}
 .soulpaw-register #join_input fieldset:nth-of-type(2)>.box:last-child>div {align-items:start;}
+
 
