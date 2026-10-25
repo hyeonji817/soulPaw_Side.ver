@@ -548,3 +548,11 @@
 
 
 
+/* Align the input area's right edge with the start of the required-field note. */
+.soulpaw-register {--registration-note-width:126px;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>legend>span {width:var(--registration-note-width);text-align:left;white-space:nowrap;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div {padding-right:var(--registration-note-width);}
+@media(max-width:850px){
+  .soulpaw-register #join_input fieldset:nth-of-type(2)>legend>span {width:auto;}
+  .soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div {padding-right:0;}
+}
