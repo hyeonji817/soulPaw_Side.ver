@@ -1,3 +1,4 @@
+import Register from "./account/Register";
 import Commerce, { OrderComplete } from "./pages/Commerce";
 import Login from "./account/Login";
 import { Routes, Route } from "react-router-dom";
@@ -40,7 +41,7 @@ function App() {
 <Route path="/order/complete" element={<OrderComplete />} />
 <Route path="/login" element={<Login />} />
 <Route path="/account/login" element={<Login />} />
-<Route path="/account/register" element={<Login register />} />
+<Route path="/account/register" element={<Register />} />
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/product_list" element={<Product_List />} />

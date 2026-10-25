@@ -1,3 +1,4 @@
+import { validateRegistration } from "./registration.js";
 import crypto from 'node:crypto';
 import { promisify } from 'node:util';
 import { query } from './db.js';
@@ -9,6 +10,7 @@ const cookieOptions = { httpOnly:true, sameSite:'lax', secure, path:'/api' };
 export const safeNext = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('\\') ? value : '/cart';
 export async function initializeAuth() {
   await query(`CREATE TABLE IF NOT EXISTS members (id TEXT PRIMARY KEY, login_id TEXT UNIQUE, password_hash TEXT, name TEXT NOT NULL, email TEXT NOT NULL DEFAULT '', provider TEXT, provider_id TEXT, UNIQUE(provider,provider_id));
+    ALTER TABLE members ADD COLUMN IF NOT EXISTS profile JSONB NOT NULL DEFAULT '{}'::jsonb;
     CREATE TABLE IF NOT EXISTS member_sessions (token_hash TEXT PRIMARY KEY, member_id TEXT REFERENCES members(id), expires_at TIMESTAMPTZ NOT NULL);
     CREATE TABLE IF NOT EXISTS oauth_states (state_hash TEXT PRIMARY KEY, provider TEXT NOT NULL, next_path TEXT NOT NULL, expires_at TIMESTAMPTZ NOT NULL);`);
 }
@@ -31,11 +33,13 @@ export function installAuth(app, origin) {
   app.get('/api/auth/me',requireMember,(req,res)=>res.json({user:req.member}));
   app.post('/api/auth/logout',async(req,res)=>{ const token=cookies(req).soulpaw_session; if(token) await query('DELETE FROM member_sessions WHERE token_hash=$1',[hash(token)]); res.clearCookie('soulpaw_session',cookieOptions); res.json({ok:true}); });
   app.post('/api/auth/register',async(req,res)=>{
-    const {id,password,name,email=''}=req.body;
+    const validation=validateRegistration(req.body);
+    if(validation.error) return res.status(400).json({message:validation.error});
+    const {id,password,name,email}=req.body;
     if(!/^[a-zA-Z0-9_-]{4,50}$/.test(id||'') || typeof password!=='string' || password.length<8 || password.length>128 || !name?.trim()) return res.status(400).json({message:'아이디는 영문·숫자 4~50자, 비밀번호는 8~128자, 이름을 입력해 주세요.'});
     const salt=crypto.randomBytes(16).toString('hex');
     const passwordHash=salt+':'+(await scrypt(password,salt,64)).toString('hex');
-    const result=await query(`INSERT INTO members(id,login_id,password_hash,name,email) VALUES($1,$2,$3,$4,$5) ON CONFLICT(login_id) DO NOTHING RETURNING id,name,email`,[crypto.randomUUID(),id,passwordHash,name.trim(),email]);
+    const result=await query(`INSERT INTO members(id,login_id,password_hash,name,email,profile) VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT(login_id) DO NOTHING RETURNING id,name,email`,[crypto.randomUUID(),id,passwordHash,name.trim(),email,JSON.stringify(validation.profile)]);
     if(!result.rows[0]) return res.status(409).json({message:'이미 사용 중인 아이디입니다.'});
     await session(res,result.rows[0]); res.status(201).json({user:result.rows[0]});
   });
