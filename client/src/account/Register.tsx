@@ -1,3 +1,4 @@
+import TermsContent from "./TermsContent";
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -118,7 +119,7 @@ const Register = () => {
                     <input type="checkbox" required name="agree_terms" checked={formData.agree_terms} onChange={handleChange} value="Y" className="join_check" />이용약관
                   </label>
                   <div className="cont_box">
-                    <iframe title="이용약관" srcDoc="이용약관 전문은 현재 원본에 등록되어 있지 않습니다." />
+                    <div className="terms-document" role="region" aria-label="이용약관 전문" tabIndex={0}><TermsContent /></div>
                   </div>    {/** cont_box end */}
                 </div>      {/** box join_box join_box0 */}
 
