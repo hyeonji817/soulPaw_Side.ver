@@ -1,0 +1,549 @@
+@charset "UTF-8";
+.soulpaw-register a:visited,
+.soulpaw-register a:hover,
+.soulpaw-register a:focus,
+.soulpaw-register a:active {
+      color:  rgb(53, 53, 53);
+}
+
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-5Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SDSamliphopangche_Outline';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.soulpaw-register .logo {
+  font-family: 'SDSamliphopangche_Outline';
+  font-weight: 700; 
+  color: black;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+.soulpaw-register .logo .recypro {
+  color: black; /* 링크 색상을 검은색으로 */
+  text-decoration: none; /* 링크의 밑줄 제거 */
+  position: relative;
+  left: 870px;
+  top: 50px;
+  font-size: 40px;
+}
+
+.soulpaw-register .registerJoin .registerBody {
+  overflow: hidden;
+  width: 1300px;
+  position: relative;
+  top: 170px;
+  margin: 0 auto;
+}
+
+.soulpaw-register h2.subtitle {
+  padding: 64px 0 60px;
+  color: #1a1a1a;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+
+.soulpaw-register input[type="hidden" i] {
+  display: none !important;
+}
+
+.soulpaw-register input:not([type="image" i], [type="range" i], [type="checkbox" i], [type="radio" i]) {
+  overflow-clip-margin: 0px !important;
+  overflow: clip !important;
+}
+
+.soulpaw-register input[type="hidden" i] {
+  appearance: none;
+  background-color: initial;
+  cursor: default;
+  padding: initial;
+  border: initial;
+}
+
+.soulpaw-register #join_input fieldset:nth-of-type(1) {
+  margin-top: 0;
+}
+
+.soulpaw-register #join_input .all_chk {
+  margin-bottom: 20px;
+  padding: 40px 0 20px;
+  border-bottom: 1px solid #dcdcdc;
+  text-align: left;
+}
+
+.soulpaw-register #join_input fieldset * {
+  font-size: 14px;
+}
+
+.soulpaw-register #join_input .all_chk label {
+  margin-right: 10px;
+  color: #333;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.soulpaw-register #join_input .all_chk input {
+  margin-top: -4px;
+}
+
+.soulpaw-register input[type=checkbox] {
+  width: 23px;
+  height: 22px;
+  margin: 0 6px 0 0;
+  outline: 0;
+  border-radius: 0;
+  border: 0;
+  background: no-repeat left center / 23px 22px;
+  background-image: url(https://www.rolarola.com/_skin/rolarola_250613/img/common/checkbox.png);
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  vertical-align: middle;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.soulpaw-register #join_input fieldset legend {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+  color: #333;
+  font-size: 20px;
+}
+
+.soulpaw-register #join_input fieldset > .box.join_box {
+  border: none;
+}
+
+.soulpaw-register #join_input fieldset > .box {
+  padding: 20px 0;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.soulpaw-register #join_input fieldset > .box.join_box input {
+  margin-right: 10px;
+}
+
+.soulpaw-register #join_input fieldset > .box.join_box .cont_box {
+  padding: 20px 0 0 !important;
+}
+
+.soulpaw-register #join_input fieldset > .box > div {
+  display: table;
+  position: relative;
+  width: 100%;
+  padding: 5px 0;
+  padding-right: 38%;
+}
+
+.soulpaw-register .tbl_row caption
+{
+  padding-bottom: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.soulpaw-register .hidden {
+  visibility: hidden;
+  overflow: hidden;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0;
+  line-height: 0;
+}
+
+.soulpaw-register colgroup {
+  display: table-column-group;
+  unicode-bidi: isolate;
+}
+
+.soulpaw-register .tbl_row th {
+  padding: 15px 0 15px 30px;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.soulpaw-register .tbl_row td {
+  padding: 15px 10px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  vertical-align: middle;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.soulpaw-register #join_input fieldset {
+  margin-top: 50px;
+}
+
+.soulpaw-register #join_input fieldset legend > span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  color: #666;
+}
+
+.soulpaw-register #join_input fieldset legend > span > strong {
+  color: #cc3a3a;
+}
+
+.soulpaw-register #join_input fieldset > .box {
+  padding: 20px 0;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.soulpaw-register #join_input fieldset > .box > div {
+  display: table;
+  position: relative;
+  width: 100%;
+  padding: 5px 0;
+  padding-right: 38%;
+}
+
+.soulpaw-register #join_input fieldset > .box > div > label {
+  display: table-cell;
+  width: 170px;
+  padding-right: 10px;
+  color: #666;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.soulpaw-register #join_input fieldset > .box > div > .input_area {
+  display: table-cell;
+  height: 34px;
+  vertical-align: middle;
+}
+
+.soulpaw-register #join_input fieldset > .box > div > .input_area input.form_input {
+  width: 100%;
+}
+
+.soulpaw-register #join_input fieldset > .box > div > .input_area input {
+  vertical-align: top;
+}
+
+.soulpaw-register #join_input fieldset > .box > div .msg {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  z-index: 5;
+  width: 38%;
+  padding-left: 20px;
+}
+
+.soulpaw-register #join_input fieldset > .box > div .msg > p.warning {
+  background-image: url(https://www.rolarola.com/_skin/rolarola_250613/img/common/bullet_msg_warning.png);
+  color: #c41c1c;
+}
+
+.soulpaw-register #join_input fieldset > .box > div .msg > p {
+  padding-left: 15px;
+  background: url(https://www.rolarola.com/_skin/rolarola_250613/img/common/bullet_msg.png) no-repeat left center;
+  color: #888;
+  font-size: 12px;
+  line-height: 34px;
+}
+
+.soulpaw-register #join_input .auto_complete_dialog {
+  width: 512px;
+}
+
+.soulpaw-register .auto_complete_dialog {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  margin-top: -1px;
+  padding: 10px 0;
+  border: 1px solid #535353;
+  background-color: #fff;
+  word-break: break-all;
+}
+
+.soulpaw-register #join_input fieldset > .box > div .msg.block {
+  display: inline-block;
+  position: static;
+  width: 100%;
+  padding-left: 0;
+}
+
+.soulpaw-register #join_input .password_security_lev {
+  display: inline-block;
+  position: relative;
+  padding: 7px 15px;
+  border: 1px solid #bfbfbf;
+  background-color: #fff;
+  color: #333;
+  font-weight: bold;
+  text-align: left;
+}
+
+.soulpaw-register #join_input .password_security_lev > span {
+  display: inline-block;
+  position: relative;
+  width: 72px;
+  height: 4px;
+  margin-top: 7px;
+  background-color: #e5e5e5;
+  vertical-align: top;
+}
+
+.soulpaw-register #join_input .password_security_lev.password_security_1 > strong {
+  color: #e60012;
+}
+
+.soulpaw-register #join_input .password_security_lev.password_security_2 > strong {
+  color: #e7853c;
+}
+
+.soulpaw-register #join_input .password_security_lev > p {
+  color: #888;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.soulpaw-register #join_input .password_security_lev.password_security_3 > strong {
+  color: #32b16c;
+}
+
+.soulpaw-register #join_input fieldset > .box > div .msg.block {
+  display: inline-block;
+  position: static;
+  width: 100%;
+  padding-left: 0;
+}
+
+.soulpaw-register #join_input fieldset > .box {
+  padding: 20px 0;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.soulpaw-register #join_input fieldset > .box > div.birth select:nth-of-type(1) {
+  width: 34%;
+  margin-left: 0;
+}
+
+.soulpaw-register #join_input fieldset > .box > div.birth select {
+  width: 33%;
+  margin-left: -1px;
+  font-size: 12px;
+}
+
+.soulpaw-register select { 
+  max-width: 100%;
+  height: 40px;
+  padding: 4px 6px;
+  border: 1px solid #dcdcdc;
+  background: url(https://www.rolarola.com/_skin/rolarola_250613/img/common/select_down.png) no-repeat center right 13px #fff;
+  color: #666;
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.soulpaw-register #join_input fieldset > .box > div > .input_area label {
+  margin-right: 20px;
+}
+
+.soulpaw-register .radio_chg input[type=radio] + label {
+  display: inline-block;
+  min-height: 20px;
+  padding-left: 30px;
+  background: url(https://www.rolarola.com/_skin/rolarola_250613/img/common/bullet_radio.png) no-repeat left center;
+  font-size: 14px;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.soulpaw-register .radio_chg input[type=radio] {
+  display: none;
+}
+
+.soulpaw-register input[type=radio] {
+  width: 22px;
+  height: 22px;
+  margin: 0 6px 0 0;
+  outline: 0;
+  border-radius: 0;
+  border: 0;
+  background: no-repeat left center / 22px 22px;
+  background-image: url(https://www.rolarola.com/_skin/rolarola_250613/img/common/radio.png);
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  vertical-align: middle;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.soulpaw-register #join_input fieldset > .box > div.addr .form_input:nth-of-type(1) {
+  width: calc(100% - 126px) !important;
+  margin-right: 10px;
+}
+
+.soulpaw-register .box_btn { 
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+}
+
+.soulpaw-register #join_input fieldset > .box > div.addr .form_input:nth-of-type(2) {
+  margin: 10px 0;
+}
+
+.soulpaw-register #join_input fieldset > .box {
+  padding: 20px 0;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.soulpaw-register #join_input fieldset > .box > div > label.vt {
+  vertical-align: top;
+}
+
+.soulpaw-register #join_input fieldset > .box > div > .input_area {
+  display: table-cell;
+  height: 34px;
+  vertical-align: middle;
+}
+
+.soulpaw-register .check_chg input[type=checkbox]:checked + label {
+  background-image: url(https://www.rolarola.com/_skin/rolarola_250613/img/common/bullet_cb_checked.png);
+}
+
+.soulpaw-register .check_chg input[type=checkbox] + label {
+  display: inline-block;
+  min-height: 20px;
+  padding-left: 30px;
+  background: url(https://www.rolarola.com/_skin/rolarola_250613/img/common/bullet_cb.png) no-repeat left center;
+  font-size: 14px;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.soulpaw-register #join_input fieldset > .box > div > .input_area .event_info {
+  margin-top: 20px;
+}
+
+.soulpaw-register #join_input .btn {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.soulpaw-register .box_btn.strong * {
+  font-weight: bold;
+}
+
+.soulpaw-register .box_btn.w150 > * {
+  width: 150px;
+}
+
+.soulpaw-register .box_btn.large > * {
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.soulpaw-register .box_btn.strong * {
+  font-weight: bold;
+}
+
+.soulpaw-register .box_btn.white * {
+  border-color: #c3c3c3;
+  background: #fff;
+  color: #666 !important;
+}
+
+.soulpaw-register .box_btn.w150 > * {
+  width: 150px;
+}
+
+.soulpaw-register .box_btn.large > * {
+  padding: 12px 16px;
+  font-size: 14px;
+}
+/* Preserve the original desktop form and fit narrower screens. */
+.soulpaw-register {padding-bottom:220px;color:#333;}
+.soulpaw-register .registerBody{max-width:calc(100% - 48px);}
+.soulpaw-register .logo{text-align:center;}
+.soulpaw-register .logo .recypro{left:auto;display:inline-block;}
+.soulpaw-register fieldset{min-width:0;border:0;padding:0;}
+.soulpaw-register #join_input fieldset>.box>div{box-sizing:border-box;}
+.soulpaw-register .form_input{box-sizing:border-box;height:40px;padding:8px 12px;border:1px solid #dcdcdc;background:white;color:#333;}
+.soulpaw-register #join_input fieldset>.box>div>.input_area{width:100%;min-width:0;}
+.soulpaw-register #join_input fieldset>.box>div.addr .form_input{max-width:100%;}
+.soulpaw-register .box_btn>*{box-sizing:border-box;display:inline-block;padding:11px 12px;border:1px solid #676767;background:#666;color:white;text-decoration:none;cursor:pointer;}
+.soulpaw-register .box_btn.gray2>*{background:white;border-color:#ccc;color:#666;}
+.soulpaw-register .box_btn input:disabled{opacity:.5;cursor:wait;}
+.soulpaw-register .register-error{color:#c41c1c;text-align:center;}
+.soulpaw-register input[type=checkbox]{appearance:auto;accent-color:#555;background-image:none;}
+.soulpaw-register .check_chg input[type=checkbox]{position:absolute;opacity:0;width:22px;height:22px;}
+.soulpaw-register .check_chg input[type=checkbox]+label{background:none;position:relative;}
+.soulpaw-register .check_chg input[type=checkbox]+label:before{content:'□';position:absolute;left:0;font-size:22px;top:-5px;}
+.soulpaw-register .check_chg input[type=checkbox]:checked+label:before{content:'▣';}
+.soulpaw-register .radio_chg input[type=radio]+label{background:none;position:relative;}
+.soulpaw-register .radio_chg input[type=radio]+label:before{content:'○';position:absolute;left:0;font-size:22px;top:-5px;}
+.soulpaw-register .radio_chg input[type=radio]:checked+label:before{content:'●';}
+.soulpaw-register .radio_chg input[type=radio]{display:inline-block;position:absolute;opacity:0;}
+.soulpaw-register .cont_box iframe{width:100%;height:150px;border:1px solid #ddd;}
+@media(max-width:850px){.soulpaw-register #join_input fieldset>.box>div{padding-right:0;}.soulpaw-register #join_input fieldset>.box>div>.input_area{width:auto;}.soulpaw-register #join_input fieldset>.box>div>.input_area input.form_input{width:100%;}.soulpaw-register #join_input fieldset>.box>div>label{width:120px;}.soulpaw-register #join_input fieldset>.box>div .msg{display:none;}.soulpaw-register .check_chg label{margin-bottom:12px;}}
+/* Explicit columns prevent rows without hint text from stretching label cells. */
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div {display:grid;grid-template-columns:170px 60%;justify-content:center;align-items:center;padding-right:0;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>.input_area {display:block;width:100%;min-width:0;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>label {display:block;box-sizing:border-box;width:170px;}
+@media(max-width:850px){.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div{grid-template-columns:120px minmax(0,1fr)}.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>.input_area{width:100%}.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>label{width:120px}}
+/* Multiline address and consent cells must grow with their contents. */
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>.input_area {height:auto;min-height:34px;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div.addr {align-items:start;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div.addr>label {padding-top:10px;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div.addr .input_area {display:grid;grid-template-columns:minmax(0,1fr) 116px;gap:10px;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div.addr .form_input:nth-of-type(1) {width:100%!important;margin:0;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div.addr .form_input:nth-of-type(n+2) {grid-column:1/-1;width:100%;margin:0;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div.addr .box_btn>* {width:100%;height:40px;padding:8px 6px;white-space:nowrap;}
+.soulpaw-register #join_input .terms-document {box-sizing:border-box;width:100%;height:150px;overflow:auto;border:1px solid #ddd;padding:12px;background:white;}
+.soulpaw-register #join_input .terms-document pre {margin:0;font:inherit;line-height:1.8;white-space:pre-line;overflow-wrap:anywhere;}
+.soulpaw-register #join_input .check_chg .event_info {position:static;line-height:1.65;margin-bottom:0;}
+.soulpaw-register #join_input .btn {position:static;display:flex;justify-content:center;gap:10px;clear:both;}
+.soulpaw-register #join_input .btn .box_btn {position:static;float:none;margin:0;}
+/* Form controls do not depend on remote decorative image files. */
+.soulpaw-register select {background-image:none;appearance:auto;}
+.soulpaw-register #join_input .radio_chg {display:flex!important;align-items:center;gap:8px;}
+.soulpaw-register #join_input .radio_chg input[type=radio] {position:static;display:inline-block;opacity:1;appearance:auto;background:none;width:18px;height:18px;flex-shrink:0;margin:0;}
+.soulpaw-register #join_input .radio_chg input[type=radio]+label {padding-left:0;min-height:0;}
+.soulpaw-register #join_input .radio_chg input[type=radio]+label:before {content:none;}
+.soulpaw-register #join_input .check_chg input[type=checkbox] {position:static;opacity:1;appearance:auto;background:none;width:18px;height:18px;margin:0 8px 0 0;vertical-align:middle;}
+.soulpaw-register #join_input .check_chg input[type=checkbox]+label {padding:0;min-height:0;background:none;}
+.soulpaw-register #join_input .check_chg input[type=checkbox]+label:before {content:none;}
+.soulpaw-register #join_input .check_chg input[type=checkbox]:focus-visible+label,.soulpaw-register #join_input .radio_chg input[type=radio]:focus-visible+label {outline:2px solid #444;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>.check_chg {display:grid;grid-template-columns:18px minmax(0,1fr);align-items:start;column-gap:8px;row-gap:12px;}
+.soulpaw-register #join_input .check_chg input[type=checkbox] {margin:0;}
+.soulpaw-register #join_input .check_chg input[type=checkbox]+label {margin:0;line-height:1.5;}
+.soulpaw-register #join_input .check_chg .event_info {grid-column:1/-1;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box:last-child>div {align-items:start;}
+
+
