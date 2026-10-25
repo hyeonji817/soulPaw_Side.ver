@@ -12,12 +12,20 @@ export async function initializeAuth() {
   await query(`CREATE TABLE IF NOT EXISTS members (id TEXT PRIMARY KEY, login_id TEXT UNIQUE, password_hash TEXT, name TEXT NOT NULL, email TEXT NOT NULL DEFAULT '', provider TEXT, provider_id TEXT, UNIQUE(provider,provider_id));
     ALTER TABLE members ADD COLUMN IF NOT EXISTS profile JSONB NOT NULL DEFAULT '{}'::jsonb;
     CREATE TABLE IF NOT EXISTS member_sessions (token_hash TEXT PRIMARY KEY, member_id TEXT REFERENCES members(id), expires_at TIMESTAMPTZ NOT NULL);
+    ALTER TABLE member_sessions ADD COLUMN IF NOT EXISTS page_started BOOLEAN NOT NULL DEFAULT true;
     CREATE TABLE IF NOT EXISTS oauth_states (state_hash TEXT PRIMARY KEY, provider TEXT NOT NULL, next_path TEXT NOT NULL, expires_at TIMESTAMPTZ NOT NULL);`);
 }
-async function session(res, member) {
+async function session(res, member, allowBootstrap = false) {
   const token=crypto.randomBytes(32).toString('hex');
-  await query(`INSERT INTO member_sessions VALUES ($1,$2,now()+interval '7 days')`,[hash(token),member.id]);
-  res.cookie('soulpaw_session',token,{...cookieOptions,maxAge:604800000});
+  await query(`INSERT INTO member_sessions(token_hash,member_id,expires_at,page_started) VALUES ($1,$2,now()+interval '7 days',$3)`,[hash(token),member.id,!allowBootstrap]);
+  res.cookie('soulpaw_session',token,cookieOptions);
+}
+// Only a freshly completed OAuth redirect may survive its first document load.
+export async function bootstrapSession(db, tokenHash) {
+  const fresh = await db.query('UPDATE member_sessions SET page_started=true WHERE token_hash=$1 AND page_started=false AND expires_at>now() RETURNING member_id',[tokenHash]);
+  if(fresh.rowCount) return true;
+  await db.query('DELETE FROM member_sessions WHERE token_hash=$1',[tokenHash]);
+  return false;
 }
 export async function requireMember(req,res,next) {
   const token=cookies(req).soulpaw_session;
@@ -29,6 +37,13 @@ export function installAuth(app, origin) {
   app.use('/api/auth', (req,res,next) => {
     if(req.method!=='GET' && req.headers.origin !== origin) return res.status(403).json({message:'허용되지 않은 요청입니다.'});
     next();
+  });
+  app.post('/api/auth/bootstrap',async(req,res)=>{
+    res.set('Cache-Control','no-store');
+    const token=cookies(req).soulpaw_session;
+    const retained=token ? await bootstrapSession({query},hash(token)) : false;
+    if(!retained) res.clearCookie('soulpaw_session',cookieOptions);
+    res.json({authenticated:retained});
   });
   app.get('/api/auth/me',requireMember,(req,res)=>res.json({user:req.member}));
   app.post('/api/auth/logout',async(req,res)=>{ const token=cookies(req).soulpaw_session; if(token) await query('DELETE FROM member_sessions WHERE token_hash=$1',[hash(token)]); res.clearCookie('soulpaw_session',cookieOptions); res.json({ok:true}); });
@@ -74,7 +89,7 @@ export function installAuth(app, origin) {
       const p=req.params.provider==='naver'?raw.response:{id:raw.id,name:raw.kakao_account?.profile?.nickname,email:raw.kakao_account?.email};
       if(!profileResponse.ok||!p?.id) throw Error('사용자 정보를 확인하지 못했습니다.');
       const member=await query(`INSERT INTO members(id,name,email,provider,provider_id) VALUES($1,$2,$3,$4,$5) ON CONFLICT(provider,provider_id) DO UPDATE SET name=EXCLUDED.name RETURNING id,name,email`,[crypto.randomUUID(),p.name||p.nickname||'회원',p.email||'',req.params.provider,String(p.id)]);
-      await session(res,member.rows[0]); res.redirect(origin+safeNext(rows[0].next_path));
+      await session(res,member.rows[0],true); res.redirect(origin+safeNext(rows[0].next_path));
     } catch(error) { res.redirect(origin+'/login?error='+encodeURIComponent(error.message)); }
   });
 }
