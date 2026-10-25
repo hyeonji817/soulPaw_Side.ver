@@ -7,6 +7,7 @@ type RequestOptions = Omit<RequestInit, "body"> & {
 export const apiRequest = async <T>(path: string, options: RequestOptions = {}): Promise<T> => {
   const response = await fetch(`${API_BASE_URL}${path}`, {
     ...options,
+    credentials: "include",
     headers: {
       "Content-Type": "application/json",
       ...options.headers,

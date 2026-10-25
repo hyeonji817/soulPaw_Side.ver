@@ -4,6 +4,8 @@ import cors from "cors";
 import express from "express";
 import { pool, query, withTransaction } from "./db.js";
 
+import { initializeAuth, installAuth } from "./auth.js";
+import { installCheckout } from "./checkout.js";
 const app = express();
 const port = Number(process.env.PORT ?? 4000);
 const clientOrigin = process.env.CLIENT_ORIGIN ?? "http://localhost:5173";
@@ -145,45 +147,9 @@ app.get("/api/products/:slug", async (req, res, next) => {
   }
 });
 
-app.post("/api/cart/items", async (req, res, next) => {
-  try {
-    const { userKey = "guest", productSlug, optionId, quantity } = req.body;
-    const product = await loadProduct(productSlug);
-
-    if (!product) {
-      res.status(404).json({ message: "상품을 찾을 수 없습니다." });
-      return;
-    }
-
-    const lineItem = calculateLineItem(product, optionId, quantity);
-    const item = await withTransaction(async (client) => {
-      const cartResult = await client.query(
-        `INSERT INTO carts (user_key)
-         VALUES ($1)
-         ON CONFLICT (user_key) DO UPDATE SET updated_at = now()
-         RETURNING id`,
-        [userKey],
-      );
-
-      const cartId = cartResult.rows[0].id;
-      const itemResult = await client.query(
-        `INSERT INTO cart_items (
-           cart_id, product_id, option_id, quantity, unit_price, total_price
-         )
-         VALUES ($1, $2, $3, $4, $5, $6)
-         RETURNING *`,
-        [cartId, product.id, lineItem.option.id, lineItem.quantity, lineItem.unitPrice, lineItem.totalPrice],
-      );
-
-      return itemResult.rows[0];
-    });
-
-    res.status(201).json({ item });
-  } catch (error) {
-    next(error);
-  }
-});
-
+await initializeAuth();
+installAuth(app, clientOrigin);
+installCheckout(app, loadProduct, calculateLineItem);
 app.post("/api/wishlist/toggle", async (req, res, next) => {
   try {
     const { userKey = "guest", productSlug } = req.body;
@@ -220,95 +186,6 @@ app.post("/api/wishlist/toggle", async (req, res, next) => {
   }
 });
 
-app.post("/api/orders", async (req, res, next) => {
-  try {
-    const {
-      userKey = "guest",
-      productSlug,
-      optionId,
-      quantity,
-      receiverName = "상세페이지 바로구매",
-      receiverPhone = "01000000000",
-      postalCode = "00000",
-      address1 = "주문서에서 입력 필요",
-    } = req.body;
-
-    const product = await loadProduct(productSlug);
-    if (!product) {
-      res.status(404).json({ message: "상품을 찾을 수 없습니다." });
-      return;
-    }
-
-    const lineItem = calculateLineItem(product, optionId, quantity);
-    const order = await withTransaction(async (client) => {
-      const tossOrderId = `soulpaw-${crypto.randomUUID()}`;
-      const orderResult = await client.query(
-        `INSERT INTO orders (
-           user_key, toss_order_id, receiver_name, receiver_phone, postal_code,
-           address1, total_product_amount, shipping_fee, total_payment_amount
-         )
-         VALUES ($1, $2, $3, $4, $5, $6, $7, 0, $7)
-         RETURNING *`,
-        [userKey, tossOrderId, receiverName, receiverPhone, postalCode, address1, lineItem.totalPrice],
-      );
-
-      await client.query(
-        `INSERT INTO order_items (
-           order_id, product_id, option_id, product_name, option_label,
-           unit_price, quantity, total_price
-         )
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-        [
-          orderResult.rows[0].id,
-          product.id,
-          lineItem.option.id,
-          product.pname,
-          lineItem.option.label,
-          lineItem.unitPrice,
-          lineItem.quantity,
-          lineItem.totalPrice,
-        ],
-      );
-
-      return orderResult.rows[0];
-    });
-
-    res.status(201).json({ order });
-  } catch (error) {
-    next(error);
-  }
-});
-
-app.post("/api/payments/prepare", async (req, res, next) => {
-  try {
-    const orderResponse = await fetch(`http://localhost:${port}/api/orders`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(req.body),
-    });
-    const payload = await orderResponse.json();
-
-    if (!orderResponse.ok) {
-      res.status(orderResponse.status).json(payload);
-      return;
-    }
-
-    res.status(201).json({
-      order: payload.order,
-      payment: {
-        method: "CARD",
-        amount: {
-          currency: "KRW",
-          value: Number(payload.order.total_payment_amount),
-        },
-        orderId: payload.order.toss_order_id,
-      },
-    });
-  } catch (error) {
-    next(error);
-  }
-});
-
 app.use((error, _req, res, _next) => {
   console.error(error); // 이 줄 추가
   
@@ -321,3 +198,4 @@ app.use((error, _req, res, _next) => {
 app.listen(port, () => {
   console.log(`SoulPaw API server listening on http://localhost:${port}`);
 });
+

@@ -3,7 +3,7 @@ import "./Product3_2.css";
 import "./Product3_3.css";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getTossPayments } from "../lib/tossPayments";
+
 import { apiRequest } from "../lib/api";
 import Header from "../main/Header";
 import Footer from "../main/Footer";
@@ -37,19 +37,6 @@ type Product = {
   stock: number;
   options: ProductOption[];
   images: ProductImage[];
-};
-
-type CartItem = {
-  productTable: string;
-  productId: string;
-  pname: string;
-  qty: number;
-  optionLabel: string;
-  unitPrice: number;
-  optionDelta: number;
-  totalPrice: number;
-  mileage: number;
-  image: string;
 };
 
 type Product3Props = {
@@ -153,23 +140,6 @@ const Product3 = ({ productSlug }: Product3Props) => {
   const totalPrice = unitPrice * qty;
   const selectedLabel = selectedOption ? `종류: ${selectedOption.label}` : "";
 
-  const makeCartItem = (): CartItem | null => {
-    if (!product) return null;
-
-    return {
-      productTable: product.productTable,
-      productId: product.slug,
-      pname: product.pname,
-      qty,
-      optionLabel: selectedLabel,
-      unitPrice,
-      optionDelta,
-      totalPrice,
-      mileage: product.mileage,
-      image: resolveAssetUrl(mainImage?.assetPath),
-    };
-  };
-
   const validateRequiredOption = () => {
     if (requiredSatisfied) return true;
 
@@ -184,72 +154,18 @@ const Product3 = ({ productSlug }: Product3Props) => {
 
   const handleAddToCart = async () => {
     if (!product || !selectedOption || !validateRequiredOption()) return;
-
     try {
-      await apiRequest("/cart/items", {
-        method: "POST",
-        body: {
-          userKey: getUserKey(),
-          productSlug: product.slug,
-          optionId: selectedOption.id,
-          quantity: qty,
-        },
-      });
-
-      const cartItem = makeCartItem();
-      const prevCart = JSON.parse(localStorage.getItem("cartItems") || "[]") as CartItem[];
-      localStorage.setItem("cartItems", JSON.stringify(cartItem ? [...prevCart, cartItem] : prevCart));
-      alert("장바구니에 상품을 담았습니다.");
-    } catch (error) {
-      alert(error instanceof Error ? error.message : "장바구니 담기에 실패했습니다.");
+      await apiRequest('/auth/me');
+      await apiRequest('/cart/items', {method:'POST',body:{productSlug:product.slug,optionId:selectedOption.id,quantity:qty}});
+      nav('/cart');
+    } catch(error) {
+      const message=error instanceof Error?error.message:'장바구니 담기에 실패했습니다.';
+      if(message.includes('로그인')) nav('/login?next='+encodeURIComponent(window.location.pathname));
+      else alert(message);
     }
   };
-
-  const handleBuyNow = () => {
-    if (!validateRequiredOption()) return;
-
-    const orderItem = makeCartItem();
-    nav("/orderList", { state: { orderItem } });
-  };
-
-  const handlePayment = async () => {
-    if (!product || !selectedOption || !validateRequiredOption()) return;
-
-    try {
-      const { order, payment } = await apiRequest<{
-        order: { toss_order_id: string };
-        payment: {
-          method: "CARD";
-          amount: {
-            currency: "KRW";
-            value: number;
-          };
-          orderId: string;
-        };
-      }>("/payments/prepare", {
-        method: "POST",
-        body: {
-          userKey: getUserKey(),
-          productSlug: product.slug,
-          optionId: selectedOption.id,
-          quantity: qty,
-        },
-      });
-
-      const tossPayments = await getTossPayments();
-      const tossPayment = tossPayments.payment({ customerKey: getUserKey() });
-
-      await tossPayment.requestPayment({
-        ...payment,
-        orderName: `${product.pname}${qty > 1 ? ` 외 ${qty - 1}건` : ""}`,
-        customerName: "SoulPaw 고객",
-        successUrl: `${window.location.origin}/payment/success?orderId=${order.toss_order_id}`,
-        failUrl: `${window.location.origin}/payment/fail`,
-      });
-    } catch (error) {
-      alert(error instanceof Error ? error.message : "결제 준비 중 오류가 발생했습니다.");
-    }
-  };
+  const handleBuyNow = handleAddToCart;
+  const handlePayment = handleAddToCart;
 
   const handleToggleWish = async () => {
     if (!product) return;

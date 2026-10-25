@@ -1,0 +1,455 @@
+@charset "UTF-8";
+.soulpaw-login a:visited,
+.soulpaw-login a:hover,
+.soulpaw-login a:focus,
+.soulpaw-login a:active {
+      color:  rgb(53, 53, 53);
+}
+
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-5Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SDSamliphopangche_Outline';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.soulpaw-login .wrapper_login .logo {
+  font-family: 'SDSamliphopangche_Outline';
+  font-weight: 700; 
+  color: black;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+.soulpaw-login .wrapper_login .logo a {
+  color: black; /* 링크 색상을 검은색으로 */
+  text-decoration: none; /* 링크의 밑줄 제거 */
+  position: relative;
+  left: 900px;
+  top: 150px;
+  font-size: 40px;
+}
+
+.soulpaw-login #login {
+  margin-bottom: 178px;
+}
+
+.soulpaw-login .box_member {
+  width: 900px;
+  margin: 261px auto 0;
+  font-family: 'GmarketSansMedium';
+}
+
+.soulpaw-login #login .login_wrap {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  top: 10px;
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+  border: 1px solid #eee;
+}
+
+/** 여기서부터는 선택사항 */
+.soulpaw-login input[type="hidden" i] {
+  display: none !important;
+}
+
+.soulpaw-login input:not([type="image" i], [type="range" i], [type="checkbox" i], [type="radio" i]) {
+  overflow-clip-margin: 0px !important;
+  overflow: clip !important;
+}
+
+.soulpaw-login input[type="hidden" i] {
+  appearance: none;
+  background-color: initial;
+  cursor: default;
+  padding: initial;
+  border: initial;
+}
+
+/** 선택사항 끝 */
+
+.soulpaw-login .box_member fieldset {
+  position: relative;
+}
+
+.soulpaw-login .box_member fieldset legend {
+  padding: 0 0 11px;
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.soulpaw-login .hidden {
+  visibility: hidden;
+  overflow: hidden;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0;
+  line-height: 0;
+}
+
+.soulpaw-login #login .fld.top {
+  margin-bottom: 70px;
+}
+
+.soulpaw-login #login .login_wrap {
+  position: relative;
+  left: 30px;
+}
+
+.soulpaw-login .box_member fieldset .fld {
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 0;
+}
+
+.soulpaw-login .box_member fieldset .fld label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  color: #000;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.025rem;
+  transform: translateY(-50%);
+  cursor: auto;
+  transition: all .3s ease;
+}
+
+.soulpaw-login .box_member .form_input.member {
+  height: 42px;
+  padding: 0 15px;
+  border-radius: 0;
+  border: 1px solid #555;
+  border-width: 0 0 1px;
+  background: #fff;
+  font-family: 'Pretendard';
+  color: #000;
+  font-size: 22px;
+}
+
+.soulpaw-login .form_input.block {
+  width: 100% !important;
+}
+
+.soulpaw-login input[type=text],
+.soulpaw-login input[type=email],
+.soulpaw-login input[type=password] {
+  vertical-align: top;
+}
+
+.soulpaw-login .box_member fieldset .fld {
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 0;
+}
+
+.soulpaw-login .box_member fieldset .fld .show_icon {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42px;
+  height: 42px;
+  background: url(https://www.rolarola.com/_skin/rolarola_250613/img/member/icon_pwd.png) no-repeat center;
+  cursor: pointer;
+}
+
+.soulpaw-login .box_member fieldset .savessl {
+  padding: 19px 0 13px;
+  font-size: 0;
+}
+
+.soulpaw-login .box_member fieldset .savessl input[type=checkbox]:checked {
+  background: #000;
+}
+
+.soulpaw-login .box_member fieldset .savessl input[type=checkbox] {
+  width: 23px;
+  height: 22px;
+  margin: 0 6px 0 0;
+  outline: 0;
+  border-radius: 0;
+  border: 0;
+  background: no-repeat left center / 23px 22px;
+  background: #d5d5d5;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  vertical-align: middle;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.soulpaw-login input[type=checkbox]:checked {
+  background-image: url(https://www.rolarola.com/_skin/rolarola_250613/img/common/checkbox_on.png);
+}
+
+.soulpaw-login .box_member fieldset .savessl label {
+  margin-right: 60px;
+  color: #d5d5d5;
+  font-size: 14px;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.soulpaw-login #login .login_btn_wrap {
+  margin-top: 11px;
+}
+
+.soulpaw-login .box_btn.block {
+  display: block;
+}
+
+.soulpaw-login .box_btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+}
+
+.soulpaw-login #login .login_btn_wrap .box_btn * {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.soulpaw-login .box_btn.black2 * {
+  border-color: #3b3b39;
+  background: #fff;
+  color: #000 !important;
+}
+
+.soulpaw-login .box_btn.block > * {
+  width: 100%;
+}
+
+.soulpaw-login .box_btn > * {
+  display: inline-block;
+  margin: 0;
+  padding: 11px 12px;
+  border: 1px solid #676767;
+  outline: none;
+  background: #666;
+  color: #fff !important;
+  font-size: 12px;
+  font-family: 'LibreBodoni', 'Pretendard', sans-serif;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.4;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: all .2s ease;
+}
+
+.soulpaw-login #login .joinfind {
+  padding-top: 40px;
+  padding-bottom: 30px;
+  font-family: 'GmarketSansMedium';
+}
+
+.soulpaw-login #login .joinfind > p > a {
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+  margin-bottom: 10px;
+  font-family: 'GmarketSansMedium';
+}
+
+.soulpaw-login a,
+.soulpaw-login a:hover,
+.soulpaw-login a:active,
+.soulpaw-login a:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.soulpaw-login #login .simple {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.soulpaw-login #login .simple a.kakao {
+  width: 56px;
+  height: 28px;
+  background: url(https://www.rolarola.com/_skin/rolarola_250613/img/member/login_kakao.png) no-repeat center / 56px auto;
+}
+
+.soulpaw-login #login .simple a {
+  display: block;
+  width: 100%;
+  text-indent: -9999px;
+}
+
+.soulpaw-login #login .simple a.naver {
+  width: 28px;
+  height: 28px;
+  background: url(https://www.rolarola.com/_skin/rolarola_250613/img/member/login_naver.png) no-repeat center / 28px auto;
+}
+
+.soulpaw-login #login .simple a.apple {
+  width: 25px;
+  height: 28px;
+  background: url(https://www.rolarola.com/_skin/rolarola_250613/img/member/login_apple.png) no-repeat center / 25px auto;
+}
+
+.soulpaw-login .box_member fieldset legend {
+  padding: 0 0 11px;
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.soulpaw-login #login .fld.top {
+  margin-bottom: 70px;
+}
+
+.soulpaw-login .box_member fieldset .fld {
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 0;
+}
+
+.soulpaw-login .box_member fieldset .fld label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.025rem;
+  transform: translateY(-50%);
+  cursor: auto;
+  transition: all .3s ease;
+}
+
+.soulpaw-login .box_member .form_input.member
+{
+  height: 42px;
+  padding: 0 15px;
+  border-radius: 0;
+  border: 1px solid #555;
+  border-width: 0 0 1px;
+  background: #fff;
+  font-family: 'Pretendard';
+  color: #000;
+  font-size: 13px;
+}
+
+.soulpaw-login .form_input.block {
+  width: 100% !important;
+}
+
+.soulpaw-login .box_member fieldset .fld {
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 0;
+}
+
+.soulpaw-login .dn {
+  display: none !important;
+}
+
+.soulpaw-login #login .tab_order .login_btn_wrap {
+  margin-top: 75px;
+}
+
+.soulpaw-login #login .login_btn_wrap .box_btn * {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.soulpaw-login .box_btn.black2 * {
+  border-color: #3b3b39;
+  background: #fff;
+  color: #000 !important;
+}
+
+.soulpaw-login .box_btn.block > * {
+  width: 100%;
+}
+
+.soulpaw-login .box_btn > * {
+  display: inline-block;
+  margin: 0;
+  padding: 11px 12px;
+  border: 1px solid #676767;
+  outline: none;
+  background: #666;
+  color: #fff !important;
+  font-size: 12px;
+  font-family: 'LibreBodoni', 'Pretendard', sans-serif;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.4;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: all .2s ease;
+}
+
+.soulpaw-login .box_member.login .tab_member {
+  padding-top: 35px;
+}
+
+.soulpaw-login ol,
+.soulpaw-login ul,
+.soulpaw-login li {
+  list-style: none;
+}
+
+.soulpaw-login .box_member.login .tab_member > li a {
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+  position: relative;
+  left: -30px;
+}
+
+.soulpaw-login .box_member.login .tab_member > li a.active {
+  display: none;
+}
+
+.soulpaw-login .box_member.login .tab_member > li a {
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+}.wrapper_login.soulpaw-login .logo {display:block;text-align:center;padding-top:145px;font-family:SDSamliphopangche_Outline,sans-serif;}
+.wrapper_login.soulpaw-login .logo a {position:static;color:#000;text-decoration:none;font-size:40px;}
+.wrapper_login.soulpaw-login .box_member {margin-top:70px;width:min(900px,95%);}
+.wrapper_login.soulpaw-login #login .login_wrap {box-sizing:border-box;left:0;width:min(600px,95%);}
+.wrapper_login.soulpaw-login fieldset {border:0;}

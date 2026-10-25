@@ -87,3 +87,5 @@ CREATE TABLE IF NOT EXISTS order_items (
   quantity INTEGER NOT NULL CHECK (quantity > 0),
   total_price INTEGER NOT NULL CHECK (total_price >= 0)
 );
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS orderer_name TEXT, ADD COLUMN IF NOT EXISTS orderer_email TEXT, ADD COLUMN IF NOT EXISTS orderer_phone TEXT, ADD COLUMN IF NOT EXISTS address2 TEXT, ADD COLUMN IF NOT EXISTS delivery_memo TEXT;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS orderer_telephone TEXT, ADD COLUMN IF NOT EXISTS receiver_telephone TEXT;
