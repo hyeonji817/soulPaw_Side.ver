@@ -241,7 +241,7 @@
 }
 
 .soulpaw-register #join_input fieldset > .box > div > .input_area input.form_input {
-  width: 400px;
+  width: 100%;
 }
 
 .soulpaw-register #join_input fieldset > .box > div > .input_area input {
@@ -495,7 +495,7 @@
 .soulpaw-register fieldset{min-width:0;border:0;padding:0;}
 .soulpaw-register #join_input fieldset>.box>div{box-sizing:border-box;}
 .soulpaw-register .form_input{box-sizing:border-box;height:40px;padding:8px 12px;border:1px solid #dcdcdc;background:white;color:#333;}
-.soulpaw-register #join_input fieldset>.box>div>.input_area{width:400px;}
+.soulpaw-register #join_input fieldset>.box>div>.input_area{width:100%;min-width:0;}
 .soulpaw-register #join_input fieldset>.box>div.addr .form_input{max-width:100%;}
 .soulpaw-register .box_btn>*{box-sizing:border-box;display:inline-block;padding:11px 12px;border:1px solid #676767;background:#666;color:white;text-decoration:none;cursor:pointer;}
 .soulpaw-register .box_btn.gray2>*{background:white;border-color:#ccc;color:#666;}
@@ -513,8 +513,8 @@
 .soulpaw-register .cont_box iframe{width:100%;height:150px;border:1px solid #ddd;}
 @media(max-width:850px){.soulpaw-register #join_input fieldset>.box>div{padding-right:0;}.soulpaw-register #join_input fieldset>.box>div>.input_area{width:auto;}.soulpaw-register #join_input fieldset>.box>div>.input_area input.form_input{width:100%;}.soulpaw-register #join_input fieldset>.box>div>label{width:120px;}.soulpaw-register #join_input fieldset>.box>div .msg{display:none;}.soulpaw-register .check_chg label{margin-bottom:12px;}}
 /* Explicit columns prevent rows without hint text from stretching label cells. */
-.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div {display:grid;grid-template-columns:170px 400px minmax(0,1fr);align-items:center;padding-right:0;}
-.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>.input_area {display:block;width:400px;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div {display:grid;grid-template-columns:170px 70% minmax(0,1fr);align-items:center;padding-right:0;}
+.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>.input_area {display:block;width:100%;min-width:0;}
 .soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>label {display:block;box-sizing:border-box;width:170px;}
 @media(max-width:850px){.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div{grid-template-columns:120px minmax(0,1fr)}.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>.input_area{width:100%}.soulpaw-register #join_input fieldset:nth-of-type(2)>.box>div>label{width:120px}}
 /* Multiline address and consent cells must grow with their contents. */
@@ -545,3 +545,4 @@
 .soulpaw-register #join_input .check_chg input[type=checkbox]+label {margin:0;line-height:1.5;}
 .soulpaw-register #join_input .check_chg .event_info {grid-column:1/-1;}
 .soulpaw-register #join_input fieldset:nth-of-type(2)>.box:last-child>div {align-items:start;}
+
