@@ -26,7 +26,7 @@ ON CONFLICT (slug) DO UPDATE SET
   updated_at = now();
 
   INSERT INTO product_options (product_id, value, label, price_delta, sort_order)
-SELECT id, slug, option_label, 0, sort_order
+SELECT products.id, seed.slug, seed.option_label, 0, seed.sort_order
 FROM (
   VALUES
     ('air-mesh-cool-pad', '에어메쉬 순면 쿨패드', 1),

@@ -1,4 +1,4 @@
-import "dotenv/config";
+import "./env.js";
 import crypto from "node:crypto";
 import cors from "cors";
 import express from "express";
