@@ -310,6 +310,8 @@ app.post("/api/payments/prepare", async (req, res, next) => {
 });
 
 app.use((error, _req, res, _next) => {
+  console.error(error); // 이 줄 추가
+  
   const status = error.status ?? 500;
   res.status(status).json({
     message: status === 500 ? "서버 오류가 발생했습니다." : error.message,
