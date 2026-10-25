@@ -4,7 +4,7 @@ import { apiRequest } from '../lib/api';
 import './Login.css';
 export default function Login({register=false}:{register?:boolean}) {
   const [params]=useSearchParams(); const nav=useNavigate();
-  const raw=params.get('next')||'/cart'; const next=raw.startsWith('/')&&!raw.startsWith('//')&&!raw.includes('\\')?raw:'/cart';
+  const next = '/';
   const [id,setId]=useState(localStorage.getItem('soulpaw:savedId')||''); const [password,setPassword]=useState('');
   const [name,setName]=useState(''); const [email,setEmail]=useState(''); const [save,setSave]=useState(false);
   const [error,setError]=useState(params.get('error')||''); const [busy,setBusy]=useState(false);
@@ -23,3 +23,4 @@ export default function Login({register=false}:{register?:boolean}) {
     <div className="sns_wrap"><div className="simple"><a className="kakao" href={`${base}/auth/kakao/start?next=${encodeURIComponent(next)}`}>카카오로 시작하기</a><a className="naver" href={`${base}/auth/naver/start?next=${encodeURIComponent(next)}`}>네이버로 시작하기</a></div></div>
   </div></div></div></div>;
 }
+

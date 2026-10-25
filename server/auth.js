@@ -89,7 +89,8 @@ export function installAuth(app, origin) {
       const p=req.params.provider==='naver'?raw.response:{id:raw.id,name:raw.kakao_account?.profile?.nickname,email:raw.kakao_account?.email};
       if(!profileResponse.ok||!p?.id) throw Error('사용자 정보를 확인하지 못했습니다.');
       const member=await query(`INSERT INTO members(id,name,email,provider,provider_id) VALUES($1,$2,$3,$4,$5) ON CONFLICT(provider,provider_id) DO UPDATE SET name=EXCLUDED.name RETURNING id,name,email`,[crypto.randomUUID(),p.name||p.nickname||'회원',p.email||'',req.params.provider,String(p.id)]);
-      await session(res,member.rows[0],true); res.redirect(origin+safeNext(rows[0].next_path));
+      await session(res,member.rows[0],true); res.redirect(origin+'/');
     } catch(error) { res.redirect(origin+'/login?error='+encodeURIComponent(error.message)); }
   });
 }
+
