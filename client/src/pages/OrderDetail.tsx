@@ -24,7 +24,7 @@ export default function OrderDetail({id}:{id:string}){
   const unavailable=(label:string)=>setNotice(`${label} 기능은 준비 중입니다. 고객센터로 문의해 주세요.`);
   return <section className="order-detail" aria-label="주문 상세">
     <div className="detail-heading"><h2>주문번호 : {displayOrderNumber(order)}</h2><button onClick={()=>window.print()}>계산서출력</button></div>
-    <div className="detail-scroll"><table className="detail-products"><colgroup><col style={{width:'27%'}}/><col style={{width:'17%'}}/>{[12,5,12,9,9,9].map((width,i)=><col key={i} style={{width:`${width}%`}}/>)}</colgroup><thead><tr>{['상품명','옵션','가격','수량','총 금액','적립금','상태','후기작성'].map(label=><th scope="col" key={label}>{label}</th>)}</tr></thead><tbody>{order.items.map(item=><tr key={item.id}><td><div className="detail-product">{item.image && <img src={asset(item.image)} alt={item.product_name}/>}<span>{item.product_name}</span></div></td><td>{item.option_label || '-'}</td><td>{won(item.unit_price)}</td><td>{item.quantity}</td><td>{won(item.total_price)}</td><td>—</td><td>{status(order.status)}<br/><button onClick={()=>unavailable('배송조회')}>배송조회</button></td><td><button className="detail-dark" onClick={()=>unavailable('후기작성')}>후기작성</button></td></tr>)}</tbody></table></div>
+    <div className="detail-scroll"><table className="detail-products"><colgroup><col style={{width:'26%'}}/><col style={{width:'15%'}}/>{[12,5,12,10,10,10].map((width,i)=><col key={i} style={{width:`${width}%`}}/>)}</colgroup><thead><tr>{['상품명','옵션','가격','수량','총 금액','적립금','상태','후기작성'].map(label=><th scope="col" key={label}>{label}</th>)}</tr></thead><tbody>{order.items.map(item=><tr key={item.id}><td><div className="detail-product">{item.image && <img src={asset(item.image)} alt={item.product_name}/>}<span>{item.product_name}</span></div></td><td>{item.option_label || '-'}</td><td>{won(item.unit_price)}</td><td>{item.quantity}</td><td>{won(item.total_price)}</td><td>—</td><td>{status(order.status)}<br/><button onClick={()=>unavailable('배송조회')}>배송조회</button></td><td><button className="detail-dark" onClick={()=>unavailable('후기작성')}>후기작성</button></td></tr>)}</tbody></table></div>
     <div className="detail-layout"><div><h3>주문자 정보</h3><InfoTable rows={[
       ['주문일자',new Date(order.created_at).toLocaleDateString('ko-KR',{timeZone:'Asia/Seoul'})],['주문하시는 분',order.orderer_name],['전화번호',order.orderer_telephone],['휴대전화번호',order.orderer_phone],
     ]}/><h3>배송지 정보</h3><InfoTable rows={[
@@ -35,4 +35,5 @@ export default function OrderDetail({id}:{id:string}){
     <div className="detail-actions">{['주문문의','주문변경','취소/환불신청'].map(label=><button key={label} onClick={()=>unavailable(label)}>{label}</button>)}<Link className="detail-dark" to="/mypage">주문목록</Link></div>
   </section>;
 }
+
 
