@@ -9,7 +9,7 @@ type Order = {id:string;created_at:string;status:string;orderer_name:string;orde
 const assets=import.meta.glob('../assets/**/*.{png,jpg,jpeg,svg}',{eager:true,query:'?url',import:'default'});
 const asset=(path:string)=>(assets['../assets/'+path] as string) || path;
 const won=(n:number)=>Number(n).toLocaleString('ko-KR')+' 원';
-const status=(s:string)=>({pending:'결제대기',paid:'결제완료',cancelled:'주문취소',failed:'결제실패'}[s] || s);
+const status=(s:string)=>({pending:'결제대기',paid:'결제완료',mock_paid:'모의 결제완료',cancelled:'주문취소',failed:'결제실패'}[s] || s);
 function InfoTable({rows}:{rows:[string, string][]}){return <table className="detail-info"><tbody>{rows.map(([label,value])=><tr key={label}><th scope="row">{label}</th><td>{value || '-'}</td></tr>)}</tbody></table>;}
 export default function OrderDetail({id}:{id:string}){
   const [order,setOrder]=useState<Order>();
@@ -35,5 +35,6 @@ export default function OrderDetail({id}:{id:string}){
     <div className="detail-actions">{['주문문의','주문변경','취소/환불신청'].map(label=><button key={label} onClick={()=>unavailable(label)}>{label}</button>)}<Link className="detail-dark" to="/mypage">주문목록</Link></div>
   </section>;
 }
+
 
 

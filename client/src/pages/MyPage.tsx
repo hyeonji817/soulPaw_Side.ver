@@ -33,9 +33,10 @@ export default function MyPage() {
     <ul className="account-benefits"><li>쿠폰 — 장</li><li>적립금 — 원</li><li>포인트 — P</li></ul></section>
     <nav aria-label="마이페이지 메뉴"><ul className="account-tabs">{tabs.map(([en,ko],i)=><li key={en}><button type="button" aria-current={tab===i?'page':undefined} onClick={()=>{setTab(i);if(orderId)nav('/mypage');}}>{en}<strong>{ko}</strong></button></li>)}</ul></nav>
     {orderId ? <OrderDetail key={orderId} id={orderId}/> : tab===0 ? <section aria-label="주문내역"><div className="account-table-scroll"><table className="account-table"><thead><tr>{['번호','주문번호','상품명','주문금액','실 결제금액','주문일자','상태'].map(title=><th key={title} scope="col">{title}</th>)}</tr></thead><tbody>
-      {loading || orderError || !orders.length ? <tr><td colSpan={7} className="account-empty">{loading?'주문내역을 불러오고 있습니다.':orderError || '주문내역이 존재하지 않습니다.'}</td></tr> : orders.map((order,i)=><tr key={order.id}><td>{i+1}</td><td className="account-order-number"><Link to={`/mypage/orders/${order.id}`}>{displayOrderNumber(order)}</Link></td><td>{order.product_name}</td><td>{won(order.total_product_amount)}</td><td>{won(order.total_payment_amount)}</td><td>{new Date(order.created_at).toLocaleDateString('ko-KR')}</td><td>{({pending:'결제대기',paid:'결제완료',cancelled:'주문취소'} as Record<string,string>)[order.status] || order.status}</td></tr>)}
+      {loading || orderError || !orders.length ? <tr><td colSpan={7} className="account-empty">{loading?'주문내역을 불러오고 있습니다.':orderError || '주문내역이 존재하지 않습니다.'}</td></tr> : orders.map((order,i)=><tr key={order.id}><td>{i+1}</td><td className="account-order-number"><Link to={`/mypage/orders/${order.id}`}>{displayOrderNumber(order)}</Link></td><td>{order.product_name}</td><td>{won(order.total_product_amount)}</td><td>{won(order.total_payment_amount)}</td><td>{new Date(order.created_at).toLocaleDateString('ko-KR')}</td><td>{({pending:'결제대기',paid:'결제완료',mock_paid:'모의 결제완료',cancelled:'주문취소'} as Record<string,string>)[order.status] || order.status}</td></tr>)}
     </tbody></table></div><p className="account-note">* 주문번호를 클릭하시면 주문정보를 확인하실 수 있습니다. <Link to="/cart">장바구니 보기</Link></p></section> : <p role="status" style={{textAlign:'center',padding:'40px 0'}}>{tabs[tab][1]} 서비스는 준비 중입니다.</p>}
   </main></>;
 }
+
 
 

@@ -67,8 +67,24 @@ export function installCheckout(app,loadProduct,calculate) {
       return result.rows[0];
     }); res.status(201).json({order});
   });
+  // Simulation only: no PG API calls and no real payment credentials.
+  app.post('/api/payments/confirm-mock',async(req,res)=>{
+    const {orderId,method}=req.body;
+    if(!/^[1-9]\d{0,18}$/.test(String(orderId)) || !['TOSS','PAYCO'].includes(method)) return res.status(400).json({message:'결제 요청을 확인해 주세요.'});
+    const order=await withTransaction(async db=>{
+      const result=await db.query('SELECT id,created_at,status,total_payment_amount FROM orders WHERE id=$1 AND user_key=$2 FOR UPDATE',[orderId,req.member.id]);
+      const current=result.rows[0];
+      if(!current){const e=Error('주문 정보를 찾을 수 없습니다.');e.status=404;throw e;}
+      if(current.status==='mock_paid')return current;
+      if(current.status!=='pending'){const e=Error('모의 결제할 수 없는 주문 상태입니다.');e.status=409;throw e;}
+      const updated=await db.query("UPDATE orders SET status='mock_paid' WHERE id=$1 AND user_key=$2 AND status='pending' RETURNING id,created_at,status,total_payment_amount",[orderId,req.member.id]);
+      return updated.rows[0];
+    });
+    res.json({ok:true,mock:true,order});
+  });
   // Prevent legacy direct-purchase endpoints from bypassing the order form.
   app.post('/api/payments/prepare',(_req,res)=>res.status(400).json({message:'장바구니에서 주문서를 작성해 주세요.'}));
 }
+
 
 
