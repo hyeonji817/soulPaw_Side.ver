@@ -1,6 +1,6 @@
 import "./Products4.css"; 
 import { Link } from "react-router-dom";
-import Header from "./Header";
+import Header from "./SiteHeader";
 import Footer from "./Footer";
 import number8Img from "../assets/medicine/4-1. number8/petHousehold_Medicine.png";
 import quickStopImg from "../assets/medicine/4-2. quickStop/miracleCare_QuickStop.png";

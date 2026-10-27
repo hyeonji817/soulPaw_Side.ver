@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import { getTossPayments } from "../lib/tossPayments";
-import Header from "../main/Header";
+import Header from "../main/SiteHeader";
 import Footer from "../main/Footer";
 
 import quickStopImg from "../assets/medicine/4-2. quickStop/miracleCare_QuickStop.png";

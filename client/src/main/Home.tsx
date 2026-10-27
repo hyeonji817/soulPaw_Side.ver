@@ -1,5 +1,5 @@
 import "./Home.css"; 
-import Header from "./Header";
+import Header from "./SiteHeader";
 import Products from "./Products";
 import Footer from "./Footer";
 

@@ -1,6 +1,6 @@
 import "./Products3.css"; 
 import { Link } from "react-router-dom";
-import Header from "./Header";
+import Header from "./SiteHeader";
 import Footer from "./Footer";
 import hanbokImg from "../assets/dress/3-1. hanbok/hanbok.png";
 import aricatImg from "../assets/dress/3-2. aricat_nasi/catTshirt.png";

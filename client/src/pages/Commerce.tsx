@@ -2,7 +2,7 @@ import { searchPostcode } from "../lib/postcode";
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { apiRequest } from '../lib/api';
-import Header from '../main/Header';
+import Header from '../main/SiteHeader';
 import './Commerce.css';
 type Item={id:string;quantity:number;optionId:number;slug:string;name:string;unitPrice:number;label:string;stock:number;mileage:number;image:string};
 type User={id:string;name:string;email:string};

@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { apiRequest } from "../lib/api";
-import Header from "../main/Header";
+import Header from "../main/SiteHeader";
 import Footer from "../main/Footer";
 
 type ProductOption = {

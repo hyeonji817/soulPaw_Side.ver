@@ -1,5 +1,5 @@
 import "./Products2.css"; 
-import Header from "./Header";
+import Header from "./SiteHeader";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import dograngImg from "../assets/food/2-1. dograng/dograngClassic.png";

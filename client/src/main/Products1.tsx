@@ -1,6 +1,6 @@
 import "./Products1.css"; 
 import { Link } from "react-router-dom";
-import Header from "./Header";
+import Header from "./SiteHeader";
 import Footer from "./Footer";
 import airMeshImg from "../assets/living/1-1. airMesh/airMesh.png";
 import ironCatPoleImg from "../assets/living/1-2. ironCatpole/iron_CatPole.png";

@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import { getTossPayments } from "../lib/tossPayments";
-import Header from "../main/Header";
+import Header from "../main/SiteHeader";
 import Footer from "../main/Footer";
 
 import dograngImg from "../assets/food/2-1. dograng/dograngClassic.png";
