@@ -37,6 +37,7 @@ function App() {
     <>
       <Routes>
 <Route path="/mypage" element={<MyPage />} />
+<Route path="/mypage/orders/:orderId" element={<MyPage />} />
 <Route path="/home" element={<Home />} />
 <Route path="/cart" element={<Commerce />} />
 <Route path="/orderList" element={<Commerce order />} />
@@ -83,3 +84,4 @@ function App() {
 }
 
 export default App;
+

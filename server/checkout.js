@@ -34,6 +34,18 @@ export function installCheckout(app,loadProduct,calculate) {
       FROM orders o WHERE o.user_key=$1 ORDER BY o.created_at DESC,o.id DESC`,[req.member.id]);
     res.json({orders:result.rows});
   });
+  app.get('/api/orders/:id',async(req,res)=>{
+    if(!/^[1-9]\d{0,18}$/.test(req.params.id)) return res.status(404).json({message:'주문 정보를 찾을 수 없습니다.'});
+    const result=await query(`SELECT id,created_at,status,orderer_name,orderer_telephone,orderer_phone,
+      receiver_name,receiver_telephone,receiver_phone,postal_code,address1,address2,delivery_memo,
+      total_product_amount,shipping_fee,total_payment_amount
+      FROM orders WHERE id=$1 AND user_key=$2`,[req.params.id,req.member.id]);
+    if(!result.rows[0]) return res.status(404).json({message:'주문 정보를 찾을 수 없습니다.'});
+    const items=await query(`SELECT oi.id,oi.product_name,oi.option_label,oi.unit_price,oi.quantity,oi.total_price,
+      (SELECT asset_path FROM product_images WHERE product_id=oi.product_id AND role='main' ORDER BY sort_order LIMIT 1) AS image
+      FROM order_items oi WHERE oi.order_id=$1 ORDER BY oi.id`,[req.params.id]);
+    res.json({order:{...result.rows[0],items:items.rows}});
+  });
   app.post('/api/orders',async(req,res)=>{
     const {cartIds,receiverName,receiverPhone,postalCode,address1,address2='',ordererName,ordererEmail,ordererPhone,ordererTelephone='',receiverTelephone='',deliveryMemo='',agreed}=req.body;
     if(!Array.isArray(cartIds)||!cartIds.length||!receiverName?.trim()||!/^[-+0-9 ]{9,20}$/.test(receiverPhone||'')||!/^\d{5}$/.test(postalCode||'')||!address1?.trim()||!ordererName?.trim()||!ordererEmail?.includes('@')||!/^[-+0-9 ]{9,20}$/.test(ordererPhone||'')||agreed!==true) return res.status(400).json({message:'주문자·배송지 정보와 구매 동의를 확인해 주세요.'});
@@ -58,4 +70,5 @@ export function installCheckout(app,loadProduct,calculate) {
   // Prevent legacy direct-purchase endpoints from bypassing the order form.
   app.post('/api/payments/prepare',(_req,res)=>res.status(400).json({message:'장바구니에서 주문서를 작성해 주세요.'}));
 }
+
 
