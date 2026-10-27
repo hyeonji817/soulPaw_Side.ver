@@ -28,6 +28,12 @@ export function installCheckout(app,loadProduct,calculate) {
     await query('UPDATE cart_items SET quantity=$1,unit_price=$2,total_price=$3 WHERE id=$4',[line.quantity,line.unitPrice,line.totalPrice,item.id]); res.json({ok:true});
   });
   app.delete('/api/cart/items/:id',async(req,res)=>{await query('DELETE FROM cart_items WHERE id=$1 AND cart_id IN (SELECT id FROM carts WHERE user_key=$2)',[req.params.id,req.member.id]);res.json({ok:true});});
+  app.get('/api/orders',async(req,res)=>{
+    const result=await query(`SELECT o.id,o.toss_order_id,o.total_product_amount,o.total_payment_amount,o.created_at,o.status,
+      (SELECT string_agg(oi.product_name, ', ' ORDER BY oi.id) FROM order_items oi WHERE oi.order_id=o.id) AS product_name
+      FROM orders o WHERE o.user_key=$1 ORDER BY o.created_at DESC,o.id DESC`,[req.member.id]);
+    res.json({orders:result.rows});
+  });
   app.post('/api/orders',async(req,res)=>{
     const {cartIds,receiverName,receiverPhone,postalCode,address1,address2='',ordererName,ordererEmail,ordererPhone,ordererTelephone='',receiverTelephone='',deliveryMemo='',agreed}=req.body;
     if(!Array.isArray(cartIds)||!cartIds.length||!receiverName?.trim()||!/^[-+0-9 ]{9,20}$/.test(receiverPhone||'')||!/^\d{5}$/.test(postalCode||'')||!address1?.trim()||!ordererName?.trim()||!ordererEmail?.includes('@')||!/^[-+0-9 ]{9,20}$/.test(ordererPhone||'')||agreed!==true) return res.status(400).json({message:'주문자·배송지 정보와 구매 동의를 확인해 주세요.'});
@@ -52,3 +58,4 @@ export function installCheckout(app,loadProduct,calculate) {
   // Prevent legacy direct-purchase endpoints from bypassing the order form.
   app.post('/api/payments/prepare',(_req,res)=>res.status(400).json({message:'장바구니에서 주문서를 작성해 주세요.'}));
 }
+
